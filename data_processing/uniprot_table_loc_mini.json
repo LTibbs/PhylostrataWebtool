@@ -1,0 +1,863 @@
+{"pages":[
+  {
+    "id": "Zm00001eb031900",
+    "rows": [
+      {
+        "row": [1],
+        "detect.frac": ["72/116"],
+        "hits": {
+          "ExOrg": ["Escherichia coli"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": ["Lusitaniella coriacea"],
+          "BestE": [4.69e-169],
+          "BestHit": ["A0A8J7E071"],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [2],
+        "detect.frac": ["8/9"],
+        "hits": {
+          "ExOrg": ["Caenorhabditis elegans"],
+          "Protein Name": ["Pyruvate dehydrogenase E1 component subunit beta, mitochondrial (PDHE1-B) (EC 1.2.4.1)"],
+          "GO terms": ["mitochondrial matrix [GO:0005759]; mitochondrion [GO:0005739]; pyruvate dehydrogenase complex [GO:0045254]; metal ion binding [GO:0046872]; pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; acetyl-CoA biosynthetic process from pyruvate [GO:0006086]"],
+          "Subcellular Loc": ["Mitochondrion matrix {ECO:0000250}."],
+          "BestOrg": ["Besnoitia besnoiti"],
+          "BestE": [1.7e-130],
+          "BestHit": ["A0A2A9M5B0"],
+          "ExE": [1.03e-77],
+          "ExHit": ["O44451"]
+        }
+      },
+      {
+        "row": [3],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Chlamydomonas reinhardtii"],
+          "Protein Name": ["pyruvate dehydrogenase (acetyl-transferring) (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; acetyl-CoA biosynthetic process from pyruvate [GO:0006086]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Chlorella vulgaris"],
+          "BestE": [1.77e-162],
+          "BestHit": ["A0A9D4TLD6"],
+          "ExE": [2.52e-162],
+          "ExHit": ["A0A2K3DYL5"]
+        }
+      },
+      {
+        "row": [4],
+        "detect.frac": ["4/4"],
+        "hits": {
+          "ExOrg": ["Chara braunii"],
+          "Protein Name": ["Pyruvate dehydrogenase E1 component subunit beta (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; acetyl-CoA biosynthetic process from pyruvate [GO:0006086]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Klebsormidium nitens"],
+          "BestE": [3e-172],
+          "BestHit": ["A0A0U9HKR7"],
+          "ExE": [1.86e-87],
+          "ExHit": ["A0A388L3L4"]
+        }
+      },
+      {
+        "row": [5],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Ceratopteris richardii"],
+          "Protein Name": ["pyruvate dehydrogenase (acetyl-transferring) (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Adiantum capillus-veneris"],
+          "BestE": [8.53e-218],
+          "BestHit": ["A0A9D4VCW4"],
+          "ExE": [2.4e-215],
+          "ExHit": ["A0A8T2UBR0"]
+        }
+      },
+      {
+        "row": [6],
+        "detect.frac": ["7/7"],
+        "hits": {
+          "ExOrg": ["Arabidopsis thaliana"],
+          "Protein Name": ["Pyruvate dehydrogenase E1 component subunit beta-3, chloroplastic (EC 1.2.4.1)"],
+          "GO terms": ["chloroplast envelope [GO:0009941]; endoplasmic reticulum [GO:0005783]; pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; zinc ion binding [GO:0008270]; pollen tube development [GO:0048868]"],
+          "Subcellular Loc": ["Plastid, chloroplast {ECO:0000305}."],
+          "BestOrg": ["Amborella trichopoda"],
+          "BestE": [8.68e-219],
+          "BestHit": ["W1NVL1"],
+          "ExE": [1.9e-216],
+          "ExHit": ["O64688"]
+        }
+      },
+      {
+        "row": [7],
+        "detect.frac": ["12/12"],
+        "hits": {
+          "ExOrg": ["Musa acuminata"],
+          "Protein Name": ["pyruvate dehydrogenase (acetyl-transferring) (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Musa acuminata"],
+          "BestE": [1.2e-223],
+          "BestHit": ["A0A804J018"],
+          "ExE": [1.2e-223],
+          "ExHit": ["A0A804J018"]
+        }
+      },
+      {
+        "row": [8],
+        "detect.frac": ["1/1"],
+        "hits": {
+          "ExOrg": ["Ananas comosus"],
+          "Protein Name": ["pyruvate dehydrogenase (acetyl-transferring) (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Ananas comosus"],
+          "BestE": [3.98e-224],
+          "BestHit": ["A0A199V821"],
+          "ExE": [3.98e-224],
+          "ExHit": ["A0A199V821"]
+        }
+      },
+      {
+        "row": [9],
+        "detect.frac": ["6/6"],
+        "hits": {
+          "ExOrg": ["Oryza sativa"],
+          "Protein Name": ["Pyruvate dehydrogenase E1 component subunit beta-3, chloroplastic (EC 1.2.4.1)"],
+          "GO terms": ["chloroplast [GO:0009507]; metal ion binding [GO:0046872]; pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; acetyl-CoA biosynthetic process from pyruvate [GO:0006086]"],
+          "Subcellular Loc": ["Plastid, chloroplast {ECO:0000305}."],
+          "BestOrg": ["Eragrostis curvula"],
+          "BestE": [2.17e-256],
+          "BestHit": ["A0A5J9WL95"],
+          "ExE": [1.95e-244],
+          "ExHit": ["Q2QM55"]
+        }
+      },
+      {
+        "row": [10],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Panicum virgatum"],
+          "Protein Name": ["pyruvate dehydrogenase (acetyl-transferring) (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Setaria italica"],
+          "BestE": [6.55e-269],
+          "BestHit": ["K3Z6T8"],
+          "ExE": [1.39e-265],
+          "ExHit": ["A0A8T0VBV4"]
+        }
+      },
+      {
+        "row": [11],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Sorghum bicolor"],
+          "Protein Name": ["pyruvate dehydrogenase (acetyl-transferring) (EC 1.2.4.1)"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; acetyl-CoA biosynthetic process from pyruvate [GO:0006086]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Tripsacum dactyloides KS"],
+          "BestE": [5.35e-277],
+          "BestHit": ["Td00002bc141601"],
+          "ExE": [3.96e-271],
+          "ExHit": ["C5YSC6"]
+        }
+      },
+      {
+        "row": [12],
+        "detect.frac": ["3/3"],
+        "hits": {
+          "ExOrg": ["Zea diploperennis Gigi"],
+          "Protein Name": ["pyruvate dehydrogenase E1 component subunit"],
+          "GO terms": [" [GO:0000003]; developmental process involved in reproduction [GO:0003006]; organic acid metabolic process [GO:0006082]; lipid metabolic process [GO:0006629]; fatty acid metabolic process [GO:0006631]; fatty acid biosynthetic process [GO:0006633]; biological_process [GO:0008150]; metabolic process [GO:0008152]; lipid biosynthetic process [GO:0008610]; biosynthetic process [GO:0009058]; pollination [GO:0009856]; cellular process [GO:0009987]; organic acid biosynthetic process [GO:0016053]; carboxylic acid metabolic process [GO:0019752]; reproductive process [GO:0022414]; multicellular organismal process [GO:0032501]; developmental process [GO:0032502]; monocarboxylic acid metabolic process [GO:0032787]; oxoacid metabolic process [GO:0043436]; cellular metabolic process [GO:0044237]; primary metabolic process [GO:0044238]; cellular biosynthetic process [GO:0044249]; cellular lipid metabolic process [GO:0044255]; small molecule metabolic process [GO:0044281]; small molecule biosynthetic process [GO:0044283]; multi-organism reproductive process [GO:0044703]; multi-multicellular organism process [GO:0044706]; carboxylic acid biosynthetic process [GO:0046394]; anatomical structure development [GO:0048856]; pollen tube development [GO:0048868];  [GO:0051704];  [GO:0055114];  [GO:0071704]; monocarboxylic acid biosynthetic process [GO:0072330];  [GO:1901576]; NA; cellular_component [GO:0005575]; intracellular anatomical structure [GO:0005622];  [GO:0005623]; cytoplasm [GO:0005737]; chloroplast [GO:0009507]; plastid envelope [GO:0009526]; plastid stroma [GO:0009532]; plastid [GO:0009536]; chloroplast stroma [GO:0009570]; chloroplast envelope [GO:0009941];  [GO:0010240]; organelle envelope [GO:0031967];  [GO:0031975]; protein-containing complex [GO:0032991]; organelle [GO:0043226]; membrane-bounded organelle [GO:0043227]; intracellular organelle [GO:0043229]; intracellular membrane-bounded organelle [GO:0043231];  [GO:0044422];  [GO:0044424];  [GO:0044434];  [GO:0044435];  [GO:0044444];  [GO:0044446];  [GO:0044464]; pyruvate dehydrogenase complex [GO:0045254]; NA; molecular_function [GO:0003674]; catalytic activity [GO:0003824]; pyruvate dehydrogenase activity [GO:0004738]; pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; binding [GO:0005488]; zinc ion binding [GO:0008270]; oxidoreductase activity [GO:0016491]; oxidoreductase activity, acting on the aldehyde or oxo group of donors, disulfide as acceptor [GO:0016624]; oxidoreductase activity, acting on the aldehyde or oxo group of donors [GO:0016903]; ion binding [GO:0043167]; cation binding [GO:0043169]; metal ion binding [GO:0046872]; transition metal ion binding [GO:0046914]; NA"],
+          "Subcellular Loc": ["Plastid Chloroplast transit peptide Peripheral|Soluble"],
+          "BestOrg": ["Zea diploperennis Gigi"],
+          "BestE": [3.02e-278],
+          "BestHit": ["Zd00001aa002802"],
+          "ExE": [3.02e-278],
+          "ExHit": ["Zd00001aa002802"]
+        }
+      },
+      {
+        "row": [13],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Zea mays parviglumis TIL11"],
+          "Protein Name": ["pyruvate dehydrogenase E1 component subunit"],
+          "GO terms": [" [GO:0000003]; developmental process involved in reproduction [GO:0003006]; organic acid metabolic process [GO:0006082]; lipid metabolic process [GO:0006629]; fatty acid metabolic process [GO:0006631]; fatty acid biosynthetic process [GO:0006633]; biological_process [GO:0008150]; metabolic process [GO:0008152]; lipid biosynthetic process [GO:0008610]; biosynthetic process [GO:0009058]; pollination [GO:0009856]; cellular process [GO:0009987]; organic acid biosynthetic process [GO:0016053]; carboxylic acid metabolic process [GO:0019752]; reproductive process [GO:0022414]; multicellular organismal process [GO:0032501]; developmental process [GO:0032502]; monocarboxylic acid metabolic process [GO:0032787]; oxoacid metabolic process [GO:0043436]; cellular metabolic process [GO:0044237]; primary metabolic process [GO:0044238]; cellular biosynthetic process [GO:0044249]; cellular lipid metabolic process [GO:0044255]; small molecule metabolic process [GO:0044281]; small molecule biosynthetic process [GO:0044283]; multi-organism reproductive process [GO:0044703]; multi-multicellular organism process [GO:0044706]; carboxylic acid biosynthetic process [GO:0046394]; anatomical structure development [GO:0048856]; pollen tube development [GO:0048868];  [GO:0051704];  [GO:0055114];  [GO:0071704]; monocarboxylic acid biosynthetic process [GO:0072330];  [GO:1901576]; NA; cellular_component [GO:0005575]; intracellular anatomical structure [GO:0005622];  [GO:0005623]; cytoplasm [GO:0005737]; chloroplast [GO:0009507]; plastid envelope [GO:0009526]; plastid stroma [GO:0009532]; plastid [GO:0009536]; chloroplast stroma [GO:0009570]; chloroplast envelope [GO:0009941];  [GO:0010240]; organelle envelope [GO:0031967];  [GO:0031975]; protein-containing complex [GO:0032991]; organelle [GO:0043226]; membrane-bounded organelle [GO:0043227]; intracellular organelle [GO:0043229]; intracellular membrane-bounded organelle [GO:0043231];  [GO:0044422];  [GO:0044424];  [GO:0044434];  [GO:0044435];  [GO:0044444];  [GO:0044446];  [GO:0044464]; pyruvate dehydrogenase complex [GO:0045254]; NA; molecular_function [GO:0003674]; catalytic activity [GO:0003824]; pyruvate dehydrogenase activity [GO:0004738]; pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; binding [GO:0005488]; zinc ion binding [GO:0008270]; oxidoreductase activity [GO:0016491]; oxidoreductase activity, acting on the aldehyde or oxo group of donors, disulfide as acceptor [GO:0016624]; oxidoreductase activity, acting on the aldehyde or oxo group of donors [GO:0016903]; ion binding [GO:0043167]; cation binding [GO:0043169]; metal ion binding [GO:0046872]; transition metal ion binding [GO:0046914]; NA"],
+          "Subcellular Loc": ["Plastid Chloroplast transit peptide Peripheral|Soluble"],
+          "BestOrg": ["Zea mays mexicana TIL18"],
+          "BestE": [9.45e-281],
+          "BestHit": ["Zx00002aa002570"],
+          "ExE": [1.03e-280],
+          "ExHit": ["Zv00002aa002999"]
+        }
+      },
+      {
+        "row": [14],
+        "detect.frac": ["37/37"],
+        "hits": {
+          "ExOrg": ["B73"],
+          "Protein Name": ["Pyruvate dehydrogenase E1 component subunit beta"],
+          "GO terms": ["pyruvate dehydrogenase (acetyl-transferring) activity [GO:0004739]; acetyl-CoA biosynthetic process from pyruvate [GO:0006086]; glycolytic process [GO:0006096]; chloroplast [GO:0009507];  [GO:0016021]"],
+          "Subcellular Loc": ["Plastid Chloroplast transit peptide Peripheral|Soluble"],
+          "BestOrg": ["CML69"],
+          "BestE": [9.7e-281],
+          "BestHit": ["Zm00020ab032240"],
+          "ExE": [9.82e-281],
+          "ExHit": ["Zm00001eb031900"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "Zm00001eb107480",
+    "rows": [
+      {
+        "row": [1],
+        "detect.frac": ["0/116"],
+        "hits": {
+          "ExOrg": ["Escherichia coli"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [2],
+        "detect.frac": ["0/9"],
+        "hits": {
+          "ExOrg": ["Caenorhabditis elegans"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [3],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Chlamydomonas reinhardtii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [4],
+        "detect.frac": ["0/4"],
+        "hits": {
+          "ExOrg": ["Chara braunii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [5],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Ceratopteris richardii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [6],
+        "detect.frac": ["0/7"],
+        "hits": {
+          "ExOrg": ["Arabidopsis thaliana"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [7],
+        "detect.frac": ["0/12"],
+        "hits": {
+          "ExOrg": ["Musa acuminata"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [8],
+        "detect.frac": ["0/1"],
+        "hits": {
+          "ExOrg": ["Ananas comosus"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [9],
+        "detect.frac": ["0/6"],
+        "hits": {
+          "ExOrg": ["Oryza sativa"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [10],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Panicum virgatum"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [11],
+        "detect.frac": ["4/5"],
+        "hits": {
+          "ExOrg": ["Sorghum bicolor"],
+          "Protein Name": ["Uncharacterized protein"],
+          "GO terms": ["endomembrane system [GO:0012505]; side of membrane [GO:0098552]"],
+          "Subcellular Loc": ["Endomembrane system {ECO:0000256|ARBA:ARBA00037868}; Lipid-anchor {ECO:0000256|ARBA:ARBA00037868}. Membrane {ECO:0000256|ARBA:ARBA00004589}; Lipid-anchor, GPI-anchor {ECO:0000256|ARBA:ARBA00004589}."],
+          "BestOrg": ["Sorghum bicolor"],
+          "BestE": [0.0001],
+          "BestHit": ["C5XCC5"],
+          "ExE": [0.0001],
+          "ExHit": ["C5XCC5"]
+        }
+      },
+      {
+        "row": [12],
+        "detect.frac": ["3/3"],
+        "hits": {
+          "ExOrg": ["Zea diploperennis Gigi"],
+          "Protein Name": [null],
+          "GO terms": ["NA; NA; NA"],
+          "Subcellular Loc": ["Cell membrane  Lipid anchor|Soluble"],
+          "BestOrg": ["Zea nicaraguensis"],
+          "BestE": [0],
+          "BestHit": ["Zn00001aa021975"],
+          "ExE": [0.0001],
+          "ExHit": ["Zd00001aa009181"]
+        }
+      },
+      {
+        "row": [13],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Zea mays parviglumis TIL11"],
+          "Protein Name": [null],
+          "GO terms": ["NA; NA; NA"],
+          "Subcellular Loc": ["Cell membrane  Lipid anchor|Soluble"],
+          "BestOrg": ["Zea mays mexicana TIL18"],
+          "BestE": [0.0001],
+          "BestHit": ["Zx00002aa008681"],
+          "ExE": [0.0001],
+          "ExHit": ["Zv00002aa009822"]
+        }
+      },
+      {
+        "row": [14],
+        "detect.frac": ["33/37"],
+        "hits": {
+          "ExOrg": ["B73"],
+          "Protein Name": [""],
+          "GO terms": ["membrane [GO:0016020];  [GO:0016021];  [GO:0031225]"],
+          "Subcellular Loc": ["Cell membrane  Lipid anchor|Soluble"],
+          "BestOrg": ["CML69"],
+          "BestE": [0.0001],
+          "BestHit": ["Zm00020ab329580"],
+          "ExE": [0.0001],
+          "ExHit": ["Zm00001eb107480"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "Zm00001eb154400",
+    "rows": [
+      {
+        "row": [1],
+        "detect.frac": ["0/116"],
+        "hits": {
+          "ExOrg": ["Escherichia coli"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [2],
+        "detect.frac": ["0/9"],
+        "hits": {
+          "ExOrg": ["Caenorhabditis elegans"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [3],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Chlamydomonas reinhardtii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [4],
+        "detect.frac": ["0/4"],
+        "hits": {
+          "ExOrg": ["Chara braunii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [5],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Ceratopteris richardii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [6],
+        "detect.frac": ["0/7"],
+        "hits": {
+          "ExOrg": ["Arabidopsis thaliana"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [7],
+        "detect.frac": ["0/12"],
+        "hits": {
+          "ExOrg": ["Musa acuminata"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [8],
+        "detect.frac": ["0/1"],
+        "hits": {
+          "ExOrg": ["Ananas comosus"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [9],
+        "detect.frac": ["0/6"],
+        "hits": {
+          "ExOrg": ["Oryza sativa"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [10],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Panicum virgatum"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [11],
+        "detect.frac": ["1/5"],
+        "hits": {
+          "ExOrg": ["Sorghum bicolor"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": ["Anatherum virginicum"],
+          "BestE": [3.44e-32],
+          "BestHit": ["Av00001aa002145"],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [12],
+        "detect.frac": ["3/3"],
+        "hits": {
+          "ExOrg": ["Zea diploperennis Gigi"],
+          "Protein Name": [null],
+          "GO terms": ["NA; NA; NA"],
+          "Subcellular Loc": ["Cytoplasm  Soluble"],
+          "BestOrg": ["Zea diploperennis Momo"],
+          "BestE": [6.57e-88],
+          "BestHit": ["Zd00003aa014438"],
+          "ExE": [5.81e-84],
+          "ExHit": ["Zd00001aa010598"]
+        }
+      },
+      {
+        "row": [13],
+        "detect.frac": ["4/5"],
+        "hits": {
+          "ExOrg": ["Zea mays parviglumis TIL11"],
+          "Protein Name": ["Retrotransposon protein"],
+          "GO terms": ["nucleobase-containing compound metabolic process [GO:0006139]; DNA metabolic process [GO:0006259]; DNA replication [GO:0006260]; RNA-templated DNA biosynthetic process [GO:0006278];  [GO:0006725];  [GO:0006807]; biological_process [GO:0008150]; metabolic process [GO:0008152]; biosynthetic process [GO:0009058]; macromolecule biosynthetic process [GO:0009059]; cellular process [GO:0009987]; DNA integration [GO:0015074]; carbon utilization [GO:0015976];  [GO:0034641];  [GO:0034645]; macromolecule metabolic process [GO:0043170]; cellular metabolic process [GO:0044237]; primary metabolic process [GO:0044238]; cellular biosynthetic process [GO:0044249];  [GO:0044260];  [GO:0046483];  [GO:0071704]; nucleic acid metabolic process [GO:0090304];  [GO:1901360];  [GO:1901576]; NA; cellular_component [GO:0005575]; intracellular anatomical structure [GO:0005622];  [GO:0005623]; nucleus [GO:0005634]; organelle [GO:0043226]; membrane-bounded organelle [GO:0043227]; intracellular organelle [GO:0043229]; intracellular membrane-bounded organelle [GO:0043231];  [GO:0044424];  [GO:0044464]; NA; molecular_function [GO:0003674]; nucleic acid binding [GO:0003676]; RNA binding [GO:0003723]; catalytic activity [GO:0003824]; RNA-directed DNA polymerase activity [GO:0003964]; carbonate dehydratase activity [GO:0004089]; binding [GO:0005488]; zinc ion binding [GO:0008270]; transferase activity [GO:0016740]; transferase activity, transferring phosphorus-containing groups [GO:0016772]; nucleotidyltransferase activity [GO:0016779]; lyase activity [GO:0016829]; carbon-oxygen lyase activity [GO:0016835]; hydro-lyase activity [GO:0016836]; DNA polymerase activity [GO:0034061]; ion binding [GO:0043167]; cation binding [GO:0043169]; metal ion binding [GO:0046872]; transition metal ion binding [GO:0046914]; organic cyclic compound binding [GO:0097159]; heterocyclic compound binding [GO:1901363]; NA"],
+          "Subcellular Loc": ["Cytoplasm  Soluble"],
+          "BestOrg": ["Zea mays mexicana TIL25"],
+          "BestE": [1.68e-89],
+          "BestHit": ["Zx00003aa021380"],
+          "ExE": [9.17e-85],
+          "ExHit": ["Zv00002aa029782"]
+        }
+      },
+      {
+        "row": [14],
+        "detect.frac": ["31/37"],
+        "hits": {
+          "ExOrg": ["B73"],
+          "Protein Name": [""],
+          "GO terms": ["calmodulin binding [GO:0005516]"],
+          "Subcellular Loc": ["Cytoplasm|Nucleus Nuclear localization signal Soluble"],
+          "BestOrg": ["B73"],
+          "BestE": [4.81e-97],
+          "BestHit": ["Zm00001eb154400"],
+          "ExE": [4.81e-97],
+          "ExHit": ["Zm00001eb154400"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "Zm00001eb364140",
+    "rows": [
+      {
+        "row": [1],
+        "detect.frac": ["0/116"],
+        "hits": {
+          "ExOrg": ["Escherichia coli"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [2],
+        "detect.frac": ["0/9"],
+        "hits": {
+          "ExOrg": ["Caenorhabditis elegans"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [3],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Chlamydomonas reinhardtii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [4],
+        "detect.frac": ["0/4"],
+        "hits": {
+          "ExOrg": ["Chara braunii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [5],
+        "detect.frac": ["0/5"],
+        "hits": {
+          "ExOrg": ["Ceratopteris richardii"],
+          "Protein Name": [null],
+          "GO terms": [null],
+          "Subcellular Loc": [null],
+          "BestOrg": [null],
+          "BestE": ["NA"],
+          "BestHit": [null],
+          "ExE": ["NA"],
+          "ExHit": [null]
+        }
+      },
+      {
+        "row": [6],
+        "detect.frac": ["4/7"],
+        "hits": {
+          "ExOrg": ["Arabidopsis thaliana"],
+          "Protein Name": ["Transmembrane protein"],
+          "GO terms": ["membrane [GO:0016020]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Amborella trichopoda"],
+          "BestE": [4.73e-14],
+          "BestHit": ["W1PED5"],
+          "ExE": [3.29e-06],
+          "ExHit": ["Q9LUF0"]
+        }
+      },
+      {
+        "row": [7],
+        "detect.frac": ["11/12"],
+        "hits": {
+          "ExOrg": ["Musa acuminata"],
+          "Protein Name": ["(wild Malaysian banana) hypothetical protein"],
+          "GO terms": ["membrane [GO:0016020]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Elaeis guineensis"],
+          "BestE": [1.15e-22],
+          "BestHit": ["A0A6I9RK93"],
+          "ExE": [5.15e-21],
+          "ExHit": ["A0A804HWN4"]
+        }
+      },
+      {
+        "row": [8],
+        "detect.frac": ["1/1"],
+        "hits": {
+          "ExOrg": ["Ananas comosus"],
+          "Protein Name": ["DUF4408 domain-containing protein"],
+          "GO terms": ["membrane [GO:0016020]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Ananas comosus"],
+          "BestE": [6.43e-19],
+          "BestHit": ["A0A199W5M2"],
+          "ExE": [6.43e-19],
+          "ExHit": ["A0A199W5M2"]
+        }
+      },
+      {
+        "row": [9],
+        "detect.frac": ["4/6"],
+        "hits": {
+          "ExOrg": ["Oryza sativa"],
+          "Protein Name": ["Os01g0924200 protein (cDNA clone:006-207-G11, full insert sequence) (cDNA clone:J023080J04, full insert sequence)"],
+          "GO terms": ["membrane [GO:0016020]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Brachypodium distachyon"],
+          "BestE": [1.01e-62],
+          "BestHit": ["I1HUQ7"],
+          "ExE": [1.4e-58],
+          "ExHit": ["Q5JJP9"]
+        }
+      },
+      {
+        "row": [10],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Panicum virgatum"],
+          "Protein Name": ["DUF4408 domain-containing protein"],
+          "GO terms": ["membrane [GO:0016020]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Setaria italica"],
+          "BestE": [2.08e-85],
+          "BestHit": ["K3XMD3"],
+          "ExE": [6.13e-81],
+          "ExHit": ["A0A8T0T1B2"]
+        }
+      },
+      {
+        "row": [11],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Sorghum bicolor"],
+          "Protein Name": ["DUF4408 domain-containing protein"],
+          "GO terms": ["membrane [GO:0016020]"],
+          "Subcellular Loc": [""],
+          "BestOrg": ["Tripsacum dactyloides KS"],
+          "BestE": [2.22e-95],
+          "BestHit": ["Td00002bc118277"],
+          "ExE": [6.34e-77],
+          "ExHit": ["C5XGD4"]
+        }
+      },
+      {
+        "row": [12],
+        "detect.frac": ["3/3"],
+        "hits": {
+          "ExOrg": ["Zea diploperennis Gigi"],
+          "Protein Name": [null],
+          "GO terms": ["NA; NA; NA"],
+          "Subcellular Loc": ["Endoplasmic reticulum Signal peptide|Transmembrane domain Transmembrane"],
+          "BestOrg": ["Zea diploperennis Momo"],
+          "BestE": [6.4e-113],
+          "BestHit": ["Zd00003aa034145"],
+          "ExE": [6.7e-113],
+          "ExHit": ["Zd00001aa031473"]
+        }
+      },
+      {
+        "row": [13],
+        "detect.frac": ["5/5"],
+        "hits": {
+          "ExOrg": ["Zea mays parviglumis TIL11"],
+          "Protein Name": [null],
+          "GO terms": ["NA; NA; NA"],
+          "Subcellular Loc": ["Endoplasmic reticulum Signal peptide|Transmembrane domain Transmembrane"],
+          "BestOrg": ["Zea mays mexicana TIL18"],
+          "BestE": [1.29e-107],
+          "BestHit": ["Zx00002aa029761"],
+          "ExE": [7.67e-103],
+          "ExHit": ["Zv00002aa033322"]
+        }
+      },
+      {
+        "row": [14],
+        "detect.frac": ["37/37"],
+        "hits": {
+          "ExOrg": ["B73"],
+          "Protein Name": [""],
+          "GO terms": ["membrane [GO:0016020];  [GO:0016021]"],
+          "Subcellular Loc": ["Endoplasmic reticulum Signal peptide|Transmembrane domain Transmembrane"],
+          "BestOrg": ["B73"],
+          "BestE": [3e-117],
+          "BestHit": ["Zm00001eb364140"],
+          "ExE": [3e-117],
+          "ExHit": ["Zm00001eb364140"]
+        }
+      }
+    ]
+  }
+]
+}
