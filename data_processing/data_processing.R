@@ -52,6 +52,10 @@ new.phylostrata <- phylostrata %>%
 new.phylostrata <- new.phylostrata %>%
   mutate(id=str_split_i(qseqid, "_",i=1))
 
+# output for downloads
+fwrite(new.phylostrata %>% select(id, phylostratum=new.ps), 
+       paste0("phylostrata_results.csv.gz"))
+
 # make this into json and output
 write(toJSON(setNames(as.data.frame(new.phylostrata %>% 
                                       select(id,strata=new.ps, fill_pct)),
