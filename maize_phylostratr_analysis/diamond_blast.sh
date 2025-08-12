@@ -17,7 +17,7 @@ date                          #optional, prints out timestamp at the start of th
 
 # load and activate conda environment with diamond installed
 module load miniconda
-source activate /project/maizegdb/ltibbs/conda_envs/diamond/
+source activate conda_envs/diamond/
 
 cpus=$SLURM_JOB_CPUS_PER_NODE
 qid=$1 # query id, the short name of the proteome
@@ -25,7 +25,7 @@ qid=$1 # query id, the short name of the proteome
 # for all files in the current directory (uniprot-seqs), run diamond blastp with the current query id
 for f in *.faa ; do
 tid=${f%.faa}
-/project/maizegdb/ltibbs/conda_envs/diamond/diamond blastp --threads $cpus --db $tid.faa --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore score --out $tid.out --query $qid.faa
+conda_envs/diamond/diamond blastp --threads $cpus --db $tid.faa --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore score --out $tid.out --query $qid.faa
 echo -e "qseqid\tsseqid\tqstart\tqend\tsstart\tsend\tevalue\tscore\tstaxid" > ${tid}.tab
 awk -v x=${tid} 'BEGIN{OFS=FS="\t"}{print $1,$2,$7,$8,$9, $10, $11, $13, x}' $tid.out >> ${tid}.tab
 rm $tid.out
