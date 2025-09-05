@@ -417,7 +417,7 @@ json.long.cleaned <- json.long %>%
   select(id, rows)
 
 write(toJSON(json.long.cleaned, pretty=T),
-      paste0("uniprot_table_loc.json"))   
+      paste0("cleaned_uniprot_table_loc.json"))   
 # NOTE: will need to manually edit this json so that it starts:
 # {"pages": [ { "id": 
 # by adding the {"pages": part at the beginning and } at the end of the file
