@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maize Phylostrata Tool</title>
+<link rel="stylesheet" href="style_webtool.css">  
+<!-- add jszip to enable downloading zipped images -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</head>
+<body>
+<header>
+  <div class="logo-title">
+    <a href="https://www.maizegdb.org" target="_blank">
+      <img src="other_images/MGDB_logo.png" alt="MaizeGDB logo" style="height: 50px" />
+    </a>
+    <a href="#search" class="title-link">
+      <img src="other_images/phylostrata_logo.png" alt="phylostrata logo" style="height: 50px" />
+    </a>
+    <a href="#search" class="title-link">
+      <h1>Maize Phylostrata Tool</h1>
+    </a>
+  </div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#search">Search Genes</a>
+    <a href="#downloads">Downloads</a>
+  </nav>
+</header>
+
+
+  <main>
+    <section id="search">
+      <div class="tool-description">
+  <p>
+    Welcome to the MaizeGDB phylostrata tool! 
+   </p>
+   <p> 
+    Phylostratigraphy determines the level of evolutionary conservation of a given protein, shown here on a scale from 1 (cellular organisms, most conserved) to 14 (<i>Zea mays mays</i>, least conserved). For more information, check out the <a href="#about">About page</a>.
+  </p>
+</div>
+
+  <div class="search-container">
+    <h2>Search for Genes</h2>
+    <p>Enter up to 100 genes, with one gene ID per line (use <a href="https://maizegdb.org/genome/assembly/Zm-B73-REFERENCE-NAM-5.0">Zm-B73-REFERENCE-NAM-5.0</a> gene IDs):</p>
+
+    <textarea id="geneInput" placeholder="Zm00001eb000010&#10;Zm00001eb000020"></textarea>
+
+    <div class="buttons-row">
+      <button onclick="populateExampleGenes()">Try Example Genes</button>
+      <button onclick="handleSearch()">Search</button>
+    </div>
+  </div>
+
+<div id="missingGenesWarning" style="display: none; text-align: center; margin-bottom: 1rem;"></div>
+
+<!-- search results bar, including sorting and select all options as well as downloads -->
+ <div id="searchResultsBar">
+        <div class="results-section">
+            <div class="checkbox-group">
+                <input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll(this)">
+                <label for="selectAllCheckbox">Select All</label>
+            </div>
+            
+            <div class="sort-section">
+                <label for="sortSelect">Sort by:</label>
+                <select id="sortSelect" onchange="handleSortChange()" class="sort-select">
+                <option value="input">Input order</option>
+                <option value="phylostrata">Phylostrata</option>
+                <option value="alphabetic">Alphabetical</option>
+            </select>
+            <button id="sortDirectionBtn" onclick="toggleSortDirection()" 
+                    title="Toggle sort direction"
+                    class="sort-direction-btn">
+                <span class="sort-arrow">↑</span>
+                <span class="sort-text">Asc</span>
+            </button>
+              </div>
+
+            <span class="results-text">Click on a gene for more details, or&nbsp;</span>
+            <a href="javascript:void(0);" onclick="openDownloadModal()" class="download-link">
+                Download Search Results
+            </a>
+        </div>
+        
+
+    </div>
+
+<div id="imageResults"></div>
+
+</section>
+
+<section id="aboutSection" style="display: none; padding: 1rem;">
+  <h2>About Phylostratigraphy</h2>
+  <p>
+    <strong>Phylostratigraphy</strong> involves identifying the level of evolutionary conservation, or the evolutionary origin, of a given gene. This is accomplished by searching for homologous proteins in increasingly broad phylogenetic groups using protein BLAST. The deepest clade in which significant homolog(s) are found is assigned as that gene's <strong>phylostratum</strong>.
+  </p>
+
+  <h2>About the Maize Phylostrata Tool</h2>
+  <p>This webtool was developed to visualize the phylostrata of B73 maize genes as determined using a <a href="https://github.com/ltibbs/phylostratr">modified version</a> of <a href="https://doi.org/10.1093/bioinformatics/btz171">phylostratr</a>. Phylostrata results for the full B73 v5 genome as well as for the other maize NAM founders are available in <a href="#downloads">Downloads</a>. The longest isoform of each protein was used.</p>
+
+    <figure>
+    <img src="other_images/tree.png" alt="Phylogenetic tree" style="max-width: 1200px; width: 100%; margin-top: 1em;" />
+    <figcaption>
+      Fig. 1: Evolutionary relationship of phylostrata, with an example species shown for each phylostratum.
+    </figcaption>
+  </figure>
+
+    <p>
+    Here, 14 phylostrata were considered, ranging from the most conserved (Phylostratum 1: Cellular Organisms) to the least conserved (Phylostratum 14: <i>Zea mays mays</i>) (see Fig. 1). Example species were chosen for each phylostratum based on quality of UniProt assemblies, status as model organism, etc.
+    </p>
+
+  <h3>Search Results</h3>
+  <h4>Images</h4>
+   <p>
+    The image for each protein shows its level of evolutionary conservation. The 14 phylostrata are arranged from right to left, from most conserved on the left to least conserved on the right. An example species for each stratum is shown above the bar.
+  </p>
+  <p>
+    The phylostratum of a given protein is shown in text in the gene name label and visually by the fill of the blue bar. The larger the blue bar, the more conserved it is. For example:
+  </p> 
+  <figure>
+    <img src="other_images/Zm00001eb000020.png" alt="Example_image_conserved" style="max-width: 1200px; width: 100%; margin-top: 1em;" />
+    <figcaption>
+      Fig. 2: Zm00001eb000020 is highly conserved. As shown by the blue bar and indicated in the gene label, this protein is found from phylostratum 2 (Domain: Eukaryota) to 14 (Subspecies:<i>Zea mays mays</i>).
+    </figcaption>
+  </figure>
+    <figure>
+    <img src="other_images/Zm00001eb107480.png" alt="Example_image_specific" style="max-width: 1200px; width: 100%; margin-top: 1em;" />
+    <figcaption>
+      Fig. 3: Zm00001eb107480 is maize-specific. As shown by the blue bar and indicated in the gene label, this protein is found only in phylostratum 14 (Subspecies: <i>Zea mays mays</i>).
+    </figcaption>
+  </figure>
+
+  <h4>Detail pages</h4>
+  <p>
+    Clicking on a result image will bring you to the gene detail page. Detail pages can also be downloaded from the search results as html or txt files.
+  </p>
+
+  <p>
+    The detail page contains 14 rows, one for each phylostratum. There are 11 columns:
+    <ul>
+      <li><strong>Strata</strong>: Number and name of phylostratum.</li>
+      <li><strong>Detected in</strong>: In how many of the species in this phylostratum was this gene found? For example, homologs of Zm00001eb031900 were identified in 72 out of 116 of the members of the Cellular Organisms phylostratum (see Fig. 4).</li>
+      <li><strong>Best Hit in Stratum</strong>: These three columns show details for the best hit; that is, the highest-scoring homolog of the gene found in <strong>any species</strong> within the current phylostratum.</li>
+      <ul>
+        <li><strong>Organism</strong>: Organism in which the best hit was found.</li>
+        <li><strong>E score</strong>: E score of the best hit.</li>
+        <li><strong>Gene</strong>: Gene ID of best hit. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project">PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.
+      </ul>
+      <li><strong>Stratum Example Species</strong>: These six columns show additional details for the best homolog within the <strong>example species</strong> for each phylostratum. Because example species were chosen based on annotation quality, status as model organism, etc., these examples are expected to have more data available for follow-up.</li>
+      <ul>
+        <li><strong>Organism</strong>: Example organism for this phylostratum.</li>
+        <li><strong>E score</strong>: E score of the best hit in the example organism.</li>
+        <li><strong>Gene</strong>: Gene ID in the example organism. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.
+        <li><strong>Name</strong>: Gene/protein name in the example organism. For most organisms, these are protein names from UniProt. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are gene descriptions from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>.</li>
+        <li><strong>GO terms</strong>: Gene Ontology terms. For most organisms, these are from UniProt. For members of the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are from MaizeGDB EnTAP results (e.g., <a href="https://download.maizegdb.org/Zd-Gigi-REFERENCE-PanAnd-1.0/">Zd-Gigi-REFERENCE-PanAnd-1.0_Zd00001ab.1_entap_results.tsv.gz</a>). For B73, these are from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>.</li>
+        <li><strong>Subcellular Loc</strong>: Subcellular location. For most organisms, these are from UniProt. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these were identified with DeepLoc2.1.</li>
+      </ul>
+    </ul>
+    <ul>
+
+    </ul> 
+  </p>
+
+  </figure>
+    <figure>
+    <img src="other_images/details_example.jpg" alt="Details_example" style="max-width: 1200px; width: 100%; margin-top: 1em;" />
+    <figcaption>
+      Fig. 4: Top of Zm00001eb031900 detail page.
+    </figcaption>
+  </figure>
+
+  <h2>Further reading</h2>
+    <ul>
+      <li>Zebulun Arendsee, Jing Li, Urminder Singh, Arun Seetharam, Karin Dorman, Eve Syrkin Wurtele (2019) "phylostratr: A framework for phylostratigraphy." Bioinformatics. <a href="https://doi.org/10.1093/bioinformatics/btz171">https://doi.org/10.1093/bioinformatics/btz171</a> </li>
+    </ul>
+  
+  
+  <h2>Credits</h2>
+  <p>
+    Contact us at: <a href="mailto:mgdb@iastate.edu">mgdb@iastate.edu</a>
+  </p>
+</section>
+
+<section id="downloadsSection" style="display: none; padding: 1rem;">
+  <h2>Downloads</h2>
+  <h3>Results files: </h3>
+  <p>Download phylostrata results for each of the NAM founders:</p>
+<p>
+    <a href="other_images/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_phylostrata_results.csv.gz" download>Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-B97-REFERENCE-NAM-1.0_Zm00018ab.1_phylostrata_results.csv.gz" download>Zm-B97-REFERENCE-NAM-1.0_Zm00018ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML103-REFERENCE-NAM-1.0_Zm00021ab.1_phylostrata_results.csv.gz" download>Zm-CML103-REFERENCE-NAM-1.0_Zm00021ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML228-REFERENCE-NAM-1.0_Zm00022ab.1_phylostrata_results.csv.gz" download>Zm-CML228-REFERENCE-NAM-1.0_Zm00022ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML247-REFERENCE-NAM-1.0_Zm00023ab.1_phylostrata_results.csv.gz" download>Zm-CML247-REFERENCE-NAM-1.0_Zm00023ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML277-REFERENCE-NAM-1.0_Zm00024ab.1_phylostrata_results.csv.gz" download>Zm-CML277-REFERENCE-NAM-1.0_Zm00024ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML322-REFERENCE-NAM-1.0_Zm00025ab.1_phylostrata_results.csv.gz" download>Zm-CML322-REFERENCE-NAM-1.0_Zm00025ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML333-REFERENCE-NAM-1.0_Zm00026ab.1_phylostrata_results.csv.gz" download>Zm-CML333-REFERENCE-NAM-1.0_Zm00026ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML52-REFERENCE-NAM-1.0_Zm00019ab.1_phylostrata_results.csv.gz" download>Zm-CML52-REFERENCE-NAM-1.0_Zm00019ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-CML69-REFERENCE-NAM-1.0_Zm00020ab.1_phylostrata_results.csv.gz" download>Zm-CML69-REFERENCE-NAM-1.0_Zm00020ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-HP301-REFERENCE-NAM-1.0_Zm00027ab.1_phylostrata_results.csv.gz" download>Zm-HP301-REFERENCE-NAM-1.0_Zm00027ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Il14H-REFERENCE-NAM-1.0_Zm00028ab.1_phylostrata_results.csv.gz" download>Zm-Il14H-REFERENCE-NAM-1.0_Zm00028ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Ki11-REFERENCE-NAM-1.0_Zm00030ab.1_phylostrata_results.csv.gz" download>Zm-Ki11-REFERENCE-NAM-1.0_Zm00030ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Ki3-REFERENCE-NAM-1.0_Zm00029ab.1_phylostrata_results.csv.gz" download>Zm-Ki3-REFERENCE-NAM-1.0_Zm00029ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Ky21-REFERENCE-NAM-1.0_Zm00031ab.1_phylostrata_results.csv.gz" download>Zm-Ky21-REFERENCE-NAM-1.0_Zm00031ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-M162W-REFERENCE-NAM-1.0_Zm00033ab.1_phylostrata_results.csv.gz" download>Zm-M162W-REFERENCE-NAM-1.0_Zm00033ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-M37W-REFERENCE-NAM-1.0_Zm00032ab.1_phylostrata_results.csv.gz" download>Zm-M37W-REFERENCE-NAM-1.0_Zm00032ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Mo18W-REFERENCE-NAM-1.0_Zm00034ab.1_phylostrata_results.csv.gz" download>Zm-Mo18W-REFERENCE-NAM-1.0_Zm00034ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Ms71-REFERENCE-NAM-1.0_Zm00035ab.1_phylostrata_results.csv.gz" download>Zm-Ms71-REFERENCE-NAM-1.0_Zm00035ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-NC350-REFERENCE-NAM-1.0_Zm00036ab.1_phylostrata_results.csv.gz" download>Zm-NC350-REFERENCE-NAM-1.0_Zm00036ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-NC358-REFERENCE-NAM-1.0_Zm00037ab.1_phylostrata_results.csv.gz" download>Zm-NC358-REFERENCE-NAM-1.0_Zm00037ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Oh43-REFERENCE-NAM-1.0_Zm00039ab.1_phylostrata_results.csv.gz" download>Zm-Oh43-REFERENCE-NAM-1.0_Zm00039ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Oh7B-REFERENCE-NAM-1.0_Zm00038ab.1_phylostrata_results.csv.gz" download>Zm-Oh7B-REFERENCE-NAM-1.0_Zm00038ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-P39-REFERENCE-NAM-1.0_Zm00040ab.1_phylostrata_results.csv.gz" download>Zm-P39-REFERENCE-NAM-1.0_Zm00040ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Tx303-REFERENCE-NAM-1.0_Zm00041ab.1_phylostrata_results.csv.gz" download>Zm-Tx303-REFERENCE-NAM-1.0_Zm00041ab.1_phylostrata_results.csv.gz</a><br>
+    <a href="other_images/Zm-Tzi8-REFERENCE-NAM-1.0_Zm00042ab.1_phylostrata_results.csv.gz" download>Zm-Tzi8-REFERENCE-NAM-1.0_Zm00042ab.1_phylostrata_results.csv.gz</a><br>
+  </p>
+  <!-- <p>or <a href="other_images/NAM_phylostrata_results.tar.gz" download> Download all</a></p> -->
+   <p>or <a href="#" id="download-results-link">Download all results files</a></p>
+  <h3>Details files: </h3>
+  <p>Download detailed results (includes example species GO terms, etc.) for each of the NAM founders:</p>
+ <!-- <p> <a href="other_images/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_phylostrata_details.csv.gz" download>Download</a> phylostrata results for the full B73 genome (Zm-B73-REFERENCE-NAM-5.0).</p> -->
+  <p>
+    <a href="other_images/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_phylostrata_details.csv.gz" download>Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-B97-REFERENCE-NAM-1.0_Zm00018ab.1_phylostrata_details.csv.gz" download>Zm-B97-REFERENCE-NAM-1.0_Zm00018ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML103-REFERENCE-NAM-1.0_Zm00021ab.1_phylostrata_details.csv.gz" download>Zm-CML103-REFERENCE-NAM-1.0_Zm00021ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML228-REFERENCE-NAM-1.0_Zm00022ab.1_phylostrata_details.csv.gz" download>Zm-CML228-REFERENCE-NAM-1.0_Zm00022ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML247-REFERENCE-NAM-1.0_Zm00023ab.1_phylostrata_details.csv.gz" download>Zm-CML247-REFERENCE-NAM-1.0_Zm00023ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML277-REFERENCE-NAM-1.0_Zm00024ab.1_phylostrata_details.csv.gz" download>Zm-CML277-REFERENCE-NAM-1.0_Zm00024ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML322-REFERENCE-NAM-1.0_Zm00025ab.1_phylostrata_details.csv.gz" download>Zm-CML322-REFERENCE-NAM-1.0_Zm00025ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML333-REFERENCE-NAM-1.0_Zm00026ab.1_phylostrata_details.csv.gz" download>Zm-CML333-REFERENCE-NAM-1.0_Zm00026ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML52-REFERENCE-NAM-1.0_Zm00019ab.1_phylostrata_details.csv.gz" download>Zm-CML52-REFERENCE-NAM-1.0_Zm00019ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-CML69-REFERENCE-NAM-1.0_Zm00020ab.1_phylostrata_details.csv.gz" download>Zm-CML69-REFERENCE-NAM-1.0_Zm00020ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-HP301-REFERENCE-NAM-1.0_Zm00027ab.1_phylostrata_details.csv.gz" download>Zm-HP301-REFERENCE-NAM-1.0_Zm00027ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Il14H-REFERENCE-NAM-1.0_Zm00028ab.1_phylostrata_details.csv.gz" download>Zm-Il14H-REFERENCE-NAM-1.0_Zm00028ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Ki11-REFERENCE-NAM-1.0_Zm00030ab.1_phylostrata_details.csv.gz" download>Zm-Ki11-REFERENCE-NAM-1.0_Zm00030ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Ki3-REFERENCE-NAM-1.0_Zm00029ab.1_phylostrata_details.csv.gz" download>Zm-Ki3-REFERENCE-NAM-1.0_Zm00029ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Ky21-REFERENCE-NAM-1.0_Zm00031ab.1_phylostrata_details.csv.gz" download>Zm-Ky21-REFERENCE-NAM-1.0_Zm00031ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-M162W-REFERENCE-NAM-1.0_Zm00033ab.1_phylostrata_details.csv.gz" download>Zm-M162W-REFERENCE-NAM-1.0_Zm00033ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-M37W-REFERENCE-NAM-1.0_Zm00032ab.1_phylostrata_details.csv.gz" download>Zm-M37W-REFERENCE-NAM-1.0_Zm00032ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Mo18W-REFERENCE-NAM-1.0_Zm00034ab.1_phylostrata_details.csv.gz" download>Zm-Mo18W-REFERENCE-NAM-1.0_Zm00034ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Ms71-REFERENCE-NAM-1.0_Zm00035ab.1_phylostrata_details.csv.gz" download>Zm-Ms71-REFERENCE-NAM-1.0_Zm00035ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-NC350-REFERENCE-NAM-1.0_Zm00036ab.1_phylostrata_details.csv.gz" download>Zm-NC350-REFERENCE-NAM-1.0_Zm00036ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-NC358-REFERENCE-NAM-1.0_Zm00037ab.1_phylostrata_details.csv.gz" download>Zm-NC358-REFERENCE-NAM-1.0_Zm00037ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Oh43-REFERENCE-NAM-1.0_Zm00039ab.1_phylostrata_details.csv.gz" download>Zm-Oh43-REFERENCE-NAM-1.0_Zm00039ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Oh7B-REFERENCE-NAM-1.0_Zm00038ab.1_phylostrata_details.csv.gz" download>Zm-Oh7B-REFERENCE-NAM-1.0_Zm00038ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-P39-REFERENCE-NAM-1.0_Zm00040ab.1_phylostrata_details.csv.gz" download>Zm-P39-REFERENCE-NAM-1.0_Zm00040ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Tx303-REFERENCE-NAM-1.0_Zm00041ab.1_phylostrata_details.csv.gz" download>Zm-Tx303-REFERENCE-NAM-1.0_Zm00041ab.1_phylostrata_details.csv.gz</a><br>
+    <a href="other_images/Zm-Tzi8-REFERENCE-NAM-1.0_Zm00042ab.1_phylostrata_details.csv.gz" download>Zm-Tzi8-REFERENCE-NAM-1.0_Zm00042ab.1_phylostrata_details.csv.gz</a><br>
+  </p>
+    <!-- <p>or <a href="other_images/NAM_phylostrata_details.tar.gz" download> Download all</a></p> -->
+    <p>or <a href="#" id="download-details-link">Download all details files</a><br></p>
+<p>
+  <h4>Details file description: </h4>
+    Each file contain one row per gene per phylostratum. The longest isoform of each protein is used. There are 13 columns:
+    <ul>
+      <!-- <li><strong>id</strong>: Gene ID (from <a href="https://maizegdb.org/genome/assembly/Zm-B73-REFERENCE-NAM-5.0">Zm-B73-REFERENCE-NAM-5.0</a>).</li> -->
+      <li><strong>id</strong>: Gene ID</li>
+      <li><strong>row</strong>: Number of phylostratum</li>
+      <li><strong>detect.frac</strong>: In how many of the species in this phylostratum was this gene found?</li>
+      <li>The next three columns show details for the best hit; that is, the highest-scoring homolog of the gene found in <strong>any species</strong> within the current phylostratum.</li>
+      <ul>
+        <li><strong>BestOrg</strong>: Organism in which the best hit was found.</li>
+        <li><strong>BestE</strong>: E score of the best hit.</li>
+        <li><strong>BestHit</strong>: Gene ID of best hit. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project">PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.
+      </ul>
+      <li>The next six columns show additional details for the best homolog within the <strong>example species</strong>for each phylostratum. Because example species were chosen based on annotation quality, status as model organism, etc., these examples are expected to have more data available for follow-up.</li>
+      <ul>
+        <li><strong>ExOrg</strong>: Example organism for this phylostratum.</li>
+        <li><strong>ExE</strong>: E score of the best hit in the example organism.</li>
+        <li><strong>Protein Name</strong>: Gene ID in the example organism. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.
+        <li><strong>GO terms</strong>: Gene Ontology terms. For most organisms, these are from UniProt. For members of the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are from MaizeGDB EnTAP results (e.g., <a href="https://download.maizegdb.org/Zd-Gigi-REFERENCE-PanAnd-1.0/">Zd-Gigi-REFERENCE-PanAnd-1.0_Zd00001ab.1_entap_results.tsv.gz</a>). For B73, these are from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>.</li>
+        <li><strong>ExHit</strong>: Gene/protein name in the example organism. For most organisms, these are protein names from UniProt. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are gene descriptions from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>.</li>
+        <li><strong>Subcellular Loc</strong>: Subcellular location. For most organisms, these are from UniProt. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these were identified with DeepLoc2.1.</li>
+      </ul>
+    </ul>
+    <ul>
+
+    </ul> 
+  </p>
+  <div id="loadingOverlayDownloads" aria-live="polite" style="display: none;">
+  <div class="spinner"></div>
+  <div style="margin-top: 1rem;">Downloading... Please wait.</div>
+  </div>
+</section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="script_webtool.js"></script>
+
+<!-- Modal Overlay for downloads -->
+<div id="downloadModal" class="modal" style="display: none;">
+  <div class="modal-content">
+    <h3>Download Search Results</h3>
+    
+<div class="modal-section">
+  <strong>Search Results:</strong><br>
+  <label>
+    <input type="radio" name="downloadScope" value="selected" checked> 
+    Download selected (<span id="selectedCount"></span>)</label><br>
+  <label><input type="radio" name="downloadScope" value="all"> Download all (<span id="allCount">0</span>)</label>
+</div>
+
+    
+    <div class="modal-section">
+      <strong>Format:</strong><br>
+      <label><input type="radio" name="downloadFormat" value="images" checked> Image (png) </label><br>
+      <label><input type="radio" name="downloadFormat" value="details"> Details pages (html)</label><br>
+      <label><input type="radio" name="downloadFormat" value="details-text"> Details pages (txt)</label>
+
+    </div>
+
+    <div class="modal-buttons">
+      <button onclick="closeDownloadModal()" class="btn-cancel">Cancel</button>
+      <button onclick="handleDownload()" class="btn-download">Download</button>
+    </div>
+  </div>
+</div>
+
+<div id="loadingOverlay">
+  <div>Downloading... Please wait.</div>
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progressBarFill">0%</div>
+  </div>
+  <button id="cancelButton" onclick="cancelDownload()" style="margin-top: 1rem; display: none;">
+  Cancel Download
+</button>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phylostrata Figure</title>
+    <base href="/image_code/">
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .thermometer-container {
+            position: relative;
+            width: 100%;
+            margin: 0px auto;
+        }
+
+        .thermometer-bar {
+            position: relative;
+            width: 100%;
+            height: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 0px;
+            margin-bottom: 15px;
+            border: 3px solid #3498db;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .thermometer-bar-fill {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .timeline {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-tickmark {
+            position: absolute;
+            width: 4px;
+            background-color: #333;
+            top: 0%;
+            left: calc((100% / 14) * (var(--i) + 0.5));
+            text-align: center;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .alt-caption {
+            position: absolute;
+            bottom: 115px;
+            font-size: 12px;
+            color: #333;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+
+        .timeline-tickmark::before {
+            content: attr(data-label);
+            position: absolute;
+            top: 100%;
+            font-size: 12px;
+            color: #333;
+            left: 50%;
+            transform: translateX(-50%) rotate(-45deg);
+            text-align: center;
+            font-weight: bold;
+            white-space: pre-wrap;
+        }
+
+        .timeline-labels {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            table-layout: fixed;
+            margin-bottom: 20px;
+        }
+
+        .timeline-labels td {
+            border: none;
+            padding: 2px;
+            font-size: 12px;
+            color: #333;
+            vertical-align: middle;
+        }
+
+        .timeline-labels img {
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .phylostrata-wrapper {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+        }
+
+        .img-wrapper {
+        background-color: white;
+        padding: 5px;
+        display: inline-block;
+        border-radius: 4px;
+        box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .phylostrata-row {
+            display: flex;
+            /* align-items: flex-start; */
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .thermometer-labels-column {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+            text-align: left;
+            width: 200px;
+        }
+
+        .gene-label {
+            font-size: 12px;
+            margin-bottom: 0;
+            margin-right: 10px;
+            color: #333;
+            white-space: nowrap;
+            height: 30px; /* Set fixed height */
+            width: 200px;
+            display: flex;
+            align-items: center;
+        }
+
+        .thermometer-main-column {
+            flex-grow: 1;
+        }
+
+        .spacer-table {
+            width: 100%;
+            text-align: center;
+            table-layout: fixed;
+            margin-bottom: 114px;
+        }
+
+        .thermometer-block {
+            margin-left: 10px;
+            height: 30px; /* Match label height */
+            display: flex;
+            align-items: center;
+        }
+        /* Hide checkboxes when hideCheckboxes parameter is present */
+        .hide-checkboxes .img-checkbox {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div id="capture" style="display: inline-block; padding: 0; margin: 0;"></div>
+    <h1 id="page-title" class="page-title"></h1>  
+
+    <div class="phylostrata-wrapper">
+        <div class="phylostrata-row">
+            <div class="thermometer-labels-column" id="gene-labels">
+                <!-- spacer table to make gene labels line up with bars -->
+                <table class="spacer-table">
+                    <tr><td> </td></tr>
+                    <tr><td> </td></tr>
+                    <tr><td> </td></tr>
+                </table>
+            </div>
+
+            <div class="thermometer-main-column">
+                <!-- example organism labels and images -->
+                <table class="timeline-labels">
+                    <tr>
+                        <td>Bacteria</td>
+                        <td>Worm</td>
+                        <td>Algae</td>
+                        <td>Stonewort</td>
+                        <td>Fern</td>
+                        <td>Arabidopsis</td>
+                        <td>Banana</td>
+                        <td>Pineapple</td>
+                        <td>Rice</td>
+                        <td>Switchgrass</td>
+                        <td>Sorghum</td>
+                        <td>Teosinte</td>
+                        <td>Teosinte</td>
+                        <td>Maize</td>
+                    </tr>
+                    <tr>
+                        <td>(<i>E. coli</i>)</td>
+                        <td>(<i>C. elegans</i>)</td>
+                        <td>(<i>C. reinhardtii</i>)</td>
+                        <td>(<i>C. richardii</i>)</td>
+                        <td>(<i>C. braunii</i>)</td>
+                        <td>(<i>A. thaliana</i>)</td>
+                        <td>(<i>M. acuminata</i>)</td>
+                        <td>(<i>A. comosus</i>)</td>
+                        <td>(<i>O. sativa</i>)</td>
+                        <td>(<i>P. virgatum</i>)</td>
+                        <td>(<i>S. bicolor</i>)</td>
+                        <td>(<i>Zea diploperennis</i>)</td>
+                        <td>(<i>Zea mays mexicana</i>)</td>
+                        <td>(<i>Zea mays mays</i>)</td>
+                    </tr>
+                    <tr>
+                        <td><img src="stratum_images/ecoli.png" alt="E. coli"></td>
+                        <td><img src="stratum_images/celegans.png" alt="C. elegans"></td>
+                        <td><img src="stratum_images/algae.png" alt="Algae"></td>
+                        <td><img src="stratum_images/stonewort.png" alt="Stonewort"></td>
+                        <td><img src="stratum_images/fern2.png" alt="Fern"></td>
+                        <td><img src="stratum_images/arabidopsis2.png" alt="Arabidopsis"></td>
+                        <td><img src="stratum_images/banana.png" alt="Banana"></td>
+                        <td><img src="stratum_images/pineapple2.png" alt="Pineapple"></td>
+                        <td><img src="stratum_images/rice2.png" alt="Rice"></td>
+                        <td><img src="stratum_images/switchgrass2.png" alt="Switchgrass"></td>
+                        <td><img src="stratum_images/sorghum2.png" alt="Sorghum"></td>
+                        <td><img src="stratum_images/ZeaDiploperennisTransparent.png" alt="Zea diploperennis"></td>
+                        <td><img src="stratum_images/ZeaMaysMexicanaTransparent.png" alt="Zea mays mexicana"></td>
+                        <td><img src="stratum_images/ZeaMaysMaysTransparent.png" alt="Zea mays mays"></td>
+                    </tr>
+                </table>
+
+                <div class="thermometer-container">
+                    <div id="thermometer-list"></div>
+                    <!-- tickmarks for each phylostratum -->
+                    <div class="timeline">
+            <div class="timeline-tickmark" style="--i: 0;" data-label="1:
+Cellular Organisms"></div>
+            <div class="timeline-tickmark" style="--i: 1;" data-label="2:
+Domain: Eukaryota"></div>
+            <div class="timeline-tickmark" style="--i: 2;" data-label="3:
+Kingdom: Viridiplantae"></div>
+            <div class="timeline-tickmark" style="--i: 3;" data-label="4:
+Phylum: Streptophyta"></div>
+            <div class="timeline-tickmark" style="--i: 4;" data-label="5:
+Land plants (Embryophyta)"></div>
+            <div class="timeline-tickmark" style="--i: 5;" data-label="6: 
+Class: Magnoliopsida"></div>
+            <div class="timeline-tickmark" style="--i: 6;" data-label="7:
+Monocots (Liliopsida)"></div>
+            <div class="timeline-tickmark" style="--i: 7;" data-label="8:
+Order: Poales"></div>
+            <div class="timeline-tickmark" style="--i: 8;" data-label="9:
+Family: Poaceae"> </div>
+            <div class="timeline-tickmark" style="--i: 9;" data-label="10:
+Subfamily: Panicoideae"></div>
+            <div class="timeline-tickmark" style="--i: 10;" data-label="11:
+Tribe: Andropogoneae"></div>
+            <div class="timeline-tickmark" style="--i: 11;" data-label="12:
+Genus: Zea"> </div>
+            <div class="timeline-tickmark" style="--i: 12;" data-label="13:
+Species: Zea mays">
+            </div>
+            <div class="timeline-tickmark" style="--i: 13;" data-label="14:
+Subspecies: Zea mays mays">
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+window.onload = function() { 
+    const thermometerList = document.getElementById('thermometer-list');
+
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Get comma-separated gene IDs from URL param
+    const pageIdsParam = getQueryParam('page');
+    const pageIds = pageIdsParam.split(',');
+    
+    // Check if checkboxes should be hidden (for downloaded image vs search result image)
+    const hideCheckboxes = getQueryParam('hideCheckboxes');
+if (hideCheckboxes === 'true') {
+    document.body.classList.add('hide-checkboxes');
+
+}
+    
+    fetch('gene_fill.json') 
+        .then(response => response.json())
+        .then(jsonData => {
+            // Clear list
+            thermometerList.innerHTML = '';
+
+            // Make filled bar with label and checkbox (if not hidden) for each gene ID
+            pageIds.forEach(pageId => {
+                const pageData = jsonData.pages.find(page => page.id === pageId);
+
+                if (pageData) {
+                    // Create thermometer container
+                    const block = document.createElement('div');
+                    block.classList.add('thermometer-block');
+                    
+                    // Create the filled thermometer bar for this gene
+                    block.innerHTML = `
+                      <div class="thermometer-bar">
+                          <div class="thermometer-bar-fill" style="width: ${pageData.fill_pct}%"></div>
+                      </div>
+                    `;
+
+                    const label = document.createElement('div');
+                    label.className = 'gene-label';
+
+                    // Create checkbox input (will be hidden if hideCheckboxes param is true)
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.className = 'img-checkbox';
+                    checkbox.dataset.geneid = pageData.id;
+                    checkbox.id = `checkbox_${pageData.id}`;
+                    checkbox.style.marginRight = "6px";
+
+                    // Create the link to the gene details page
+                    const link = document.createElement('a');
+                    link.href = `../gene_pages/index.html?page=${pageData.id}`;
+                    link.textContent = pageData.id;
+                    link.target = '_blank';
+                    link.style.color = '#3498db';
+                    link.style.textDecoration = 'underline';
+
+                    // Add the rest of the text (phylostratum number)
+                    const textSpan = document.createElement('span');
+                    textSpan.textContent = `: Phylostratum ${pageData.strata}`;
+
+                    // Append checkbox first
+                    label.appendChild(checkbox);
+
+                    // Append link
+                    label.appendChild(link);
+
+                    // Append extra text
+                    label.appendChild(textSpan);
+
+                    // Append to gene-labels container
+                    document.getElementById('gene-labels').appendChild(label);
+
+                    thermometerList.appendChild(block);
+                } else {
+                    console.warn(`Page ID not found: ${pageId}`);
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Error loading JSON:', error);
+        });
+
+    // Once thermometer bars are loaded, add tickmarks
+    setTimeout(() => {
+        const thermometerList = document.getElementById('thermometer-list');
+        const timeline = document.querySelector('.timeline');
+        const timelineTickmarks = document.querySelectorAll('.timeline-tickmark');
+
+        timeline.style.height = thermometerList.offsetHeight + 'px';
+        const containerHeight = thermometerList.offsetHeight;
+        const marginExtra = 20;
+
+        timelineTickmarks.forEach(tickmark => {
+            tickmark.style.height = (containerHeight + marginExtra) + 'px';
+        });
+    }, 100);
+
+    // after thermometer bars loaded, set up checkbox communication
+    setTimeout(() => {
+        setupCheckboxCommunication();
+    }, 200);
+};
+
+// the following functions handle checkbox communication with the parent window
+
+function setupCheckboxCommunication() {
+    const checkboxes = document.querySelectorAll('.img-checkbox');
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            sendSelectionToParent();
+        });
+    });
+    
+    sendSelectionToParent();
+}
+
+window.addEventListener('message', function(event) {
+    if (event.origin !== window.location.origin) return;
+    
+    if (event.data.type === 'toggleAllCheckboxes') {
+        const checkboxes = document.querySelectorAll('.img-checkbox');
+        checkboxes.forEach(checkbox => {
+            checkbox.checked = event.data.checked;
+        });
+        
+        sendSelectionToParent();
+    }
+});
+
+function sendSelectionToParent() {
+    const selectedGenes = [];
+    const checkboxes = document.querySelectorAll('.img-checkbox');
+    const totalCheckboxes = checkboxes.length;
+    let checkedCount = 0;
+    
+    checkboxes.forEach(checkbox => {
+        if (checkbox.checked) {
+            checkedCount++;
+            selectedGenes.push({
+                geneId: checkbox.dataset.geneid,
+            });
+        }
+    });
+    
+    window.parent.postMessage({
+        type: 'updateGeneSelection',
+        selectedGenes: selectedGenes,
+        allSelected: checkedCount === totalCheckboxes,
+        noneSelected: checkedCount === 0,
+        totalCount: totalCheckboxes,
+        selectedCount: checkedCount
+    }, '*');
+    
+}
+</script>
+</body>
+</html>

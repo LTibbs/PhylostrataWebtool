@@ -1,0 +1,487 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f9fafb;
+  color: #333;
+}
+
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Group logo and title */
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* space between logo and title */
+}
+
+/* Title styling */
+header h1 {
+  font-size: 1.5rem;
+  color: #166534;
+  margin: 0;
+}
+
+/* Remove blue outline on image link click */
+.logo-title a {
+  text-decoration: none;
+  /* remove underline */
+  color: inherit;
+  /* keep same color as surrounding text */
+  display: inline-block;
+  line-height: 0;
+  /* removes extra vertical space */
+}
+
+nav a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: #166534;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #15803d;
+}
+
+main {
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+h2 {
+  color: #166534;
+  font-size: 1.25rem;
+}
+
+.search-container {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.search-container h2 {
+  margin-bottom: 0.25rem;
+}
+
+.search-container p {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+h2,
+p {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.buttons-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  /* left align buttons */
+}
+
+.buttons-row button {
+  flex: 1;
+  /* buttons share available space equally */
+  max-width: none;
+  /* remove max-width so buttons fill */
+  width: auto;
+  padding: 0.5rem 1.5rem;
+  align-self: stretch;
+  /* make buttons same height and full height of row */
+}
+
+button {
+  padding: 0.5rem 1.5rem;
+  background-color: #166534;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  /* Make buttons full width */
+  max-width: 280px;
+  /* max width per button */
+  align-self: center;
+  /* Center buttons in container */
+}
+
+.tool-description {
+  background-color: #e6f4ea;
+  padding: 1rem 2rem;
+  color: #166534;
+  font-size: 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  border-bottom: 1px solid #c7dfcd;
+}
+
+.warning-message {
+  color: #b91c1c;
+}
+
+.note-message {
+  color: #030303;
+}
+
+/* search box */
+textarea {
+  width: 100%;
+  height: 160px;
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-family: monospace;
+  resize: vertical;
+  box-sizing: border-box;
+  /* Include padding in width */
+}
+
+/* Modal background */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal box */
+.modal-content {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: left;
+}
+
+.modal-section {
+  margin: 1rem 0;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn-cancel {
+  background-color: white;
+  color: #166534;
+  border: 1px solid #999;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.btn-download {
+  background-color: #166534;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+/* Full-screen overlay */
+#loadingOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
+}
+
+/* Progress bar wrapper */
+.progress-bar-container {
+  width: 60%;
+  max-width: 400px;
+  background-color: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 1rem;
+  height: 1.25rem;
+}
+
+/* Actual progress fill */
+.progress-bar-fill {
+  height: 100%;
+  background-color: #166534;
+  width: 0%;
+  transition: width 0.2s ease-in-out;
+  color: white;
+  text-align: center;
+  line-height: 1.25rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  /* overflow-x: auto; */
+  box-sizing: border-box;
+}
+
+#imageResults {
+  max-width: 100vw;
+  /* Allow full width if needed */
+  box-sizing: border-box;
+  /* Include padding/border in width */
+  padding: 0;
+  margin: 0 auto;
+  /* Center it */
+}
+
+#imageResults a {
+  text-decoration: none;
+  display: block;
+}
+
+#imageResults img {
+  width: 100%;
+  max-width: 1300px;
+  display: block;
+  margin: 1px auto;
+  padding: 0;
+  border: 1px solid #ccc;
+}
+
+.image-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 1rem auto;
+  max-width: 1300px;
+  padding: 0.25rem;
+  border: 1px solid #ccc;
+  background: white;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.image-wrapper input[type="checkbox"] {
+  margin-right: 1rem;
+  transform: scale(1.25);
+}
+
+/* formatting for the search results bar, including checkboxes, sorting, and downloads: */
+
+#searchResultsBar {
+  display: none;
+  /* Hidden by default */
+  max-width: 1400px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin: 1rem auto;
+  background-color: #e6f4ea;
+  color: #166534;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.results-section {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+  flex: 1;
+  min-width: 300px;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0.5rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(22, 101, 52, 0.2);
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin: 0;
+  accent-color: #166534;
+  cursor: pointer;
+}
+
+.checkbox-group label {
+  cursor: pointer;
+  user-select: none;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.results-text {
+  font-weight: normal;
+}
+
+.download-link {
+  margin: 0;
+  color: #166534;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  background-color: white;
+  border: 1px solid rgba(22, 101, 52, 0.2);
+}
+
+.sort-section {
+  display: flex;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid rgba(22, 101, 52, 0.2);
+}
+
+.sort-section label {
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+.sort-select {
+  padding: 0.3rem 0.5rem;
+  border: 1px solid rgba(22, 101, 52, 0.3);
+  border-radius: 4px;
+  background-color: white;
+  color: #166534;
+  font-weight: bold;
+  font-size: 0.9rem;
+  /* font-size: 1rem; */
+  outline: none;
+  cursor: pointer;
+}
+
+.sort-select:focus {
+  border-color: #166534;
+  box-shadow: 0 0 0 2px rgba(22, 101, 52, 0.1);
+}
+
+.sort-direction-btn {
+  padding: 0.3rem 0.6rem;
+  border: 1px solid rgba(22, 101, 52, 0.3);
+  border-radius: 4px;
+  background-color: white;
+  color: #166534;
+  font-weight: bold;
+  /* font-size: 0.85rem; */
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  /* min-width: 65px; */
+  width: 67px;
+  justify-content: center;
+}
+
+.sort-direction-btn:hover {
+  background-color: #f0f9ff;
+  border-color: #166534;
+}
+
+.sort-direction-btn:active {
+  transform: translateY(1px);
+}
+
+.sort-arrow {
+  transition: transform 0.2s ease;
+  font-size: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  #searchResultsBar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+  }
+
+  .results-section {
+    justify-content: center;
+    flex-wrap: wrap;
+    min-width: auto;
+  }
+
+  .sort-section {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .results-section {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .checkbox-group {
+    align-self: center;
+  }
+}
+
+/* Styles for loading spinner overlay */
+        #loadingOverlayDownloads {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .spinner {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+
+        /* Spinner animation */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
