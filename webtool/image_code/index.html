@@ -65,12 +65,13 @@
             align-items: center;
         }
 
+        /* NOTE: adjust `left` here to account for the number of phylostrata you choose to use (MaizeGDB uses 14) */
         .timeline-tickmark {
             position: absolute;
             width: 4px;
             background-color: #333;
             top: 0%;
-            left: calc((100% / 14) * (var(--i) + 0.5));
+            left: calc((100% / 14) * (var(--i) + 0.5)); 
             text-align: center;
             border-radius: 5px;
             transition: transform 0.3s ease;
@@ -202,8 +203,10 @@
 
             <div class="thermometer-main-column">
                 <!-- example organism labels and images -->
+                <!-- NOTE: update the example species for each strata as desired here -->
                 <table class="timeline-labels">
                     <tr>
+                        <!-- common names -->
                         <td>Bacteria</td>
                         <td>Worm</td>
                         <td>Algae</td>
@@ -220,6 +223,7 @@
                         <td>Maize</td>
                     </tr>
                     <tr>
+                        <!-- scientific names -->
                         <td>(<i>E. coli</i>)</td>
                         <td>(<i>C. elegans</i>)</td>
                         <td>(<i>C. reinhardtii</i>)</td>
@@ -236,6 +240,7 @@
                         <td>(<i>Zea mays mays</i>)</td>
                     </tr>
                     <tr>
+                        <!-- NOTE: place all images for example species into the webtool/stratum_images folder and update file names and titles here -->
                         <td><img src="stratum_images/ecoli.png" alt="E. coli"></td>
                         <td><img src="stratum_images/celegans.png" alt="C. elegans"></td>
                         <td><img src="stratum_images/algae.png" alt="Algae"></td>
@@ -256,6 +261,7 @@
                 <div class="thermometer-container">
                     <div id="thermometer-list"></div>
                     <!-- tickmarks for each phylostratum -->
+                     <!-- NOTE: update these as needed for your species -->
                     <div class="timeline">
             <div class="timeline-tickmark" style="--i: 0;" data-label="1:
 Cellular Organisms"></div>

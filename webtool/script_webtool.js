@@ -387,7 +387,7 @@ function updateProgressBar(percent) {
   fill.style.width = `${percent}%`;
   fill.textContent = `${percent}%`;
 }
-
+// NOTE: provide example genes here
   function populateExampleGenes() {
     const exampleGenes = [
       // "Zm00001eb181160",
@@ -492,6 +492,7 @@ async function fetchGeneDetailHTML(geneID) {
 // functions to download text versions of detail files
 function generateTextTable(pageData) {
     // Create row name list 
+    // NOTE: update strata names as desired
     const rowNames = [
         "1: Cellular organisms",
         "2: Domain: Eukaryota",
@@ -969,11 +970,13 @@ async function downloadZipByPattern(pattern, zipName) {
   }
 }
 
+// NOTE: update patterns and zip names here as needed
 document.getElementById('download-details-link').addEventListener('click', (e) => {
   e.preventDefault();
   downloadZipByPattern('phylostrata_details', 'NAM_phylostrata_details.zip');
 });
 
+// NOTE: update patterns and zip names here as needed
 document.getElementById('download-results-link').addEventListener('click', (e) => {
   e.preventDefault();
   downloadZipByPattern('phylostrata_results', 'NAM_phylostrata_results.zip');

@@ -37,10 +37,10 @@ function generateTable(pageData) {
     const subHeaderRow = document.createElement('tr');
     subHeaderRow.innerHTML = `
         <th class="divider-left">Organism</th> 
-        <th>E score</th>
+        <th>E value</th>
         <th>Gene</th>
         <th class="divider-left">Organism</th> 
-        <th>E score</th>
+        <th>E value</th>
         <th>Gene</th>
         <th>Name</th>
         <th>GO terms</th>
@@ -67,7 +67,7 @@ function generateTable(pageData) {
         rowElement.appendChild(detectedInCell);
         
 
-        // Best hit cells (sub-columns): best organism, E score, and gene name
+        // Best hit cells (sub-columns): best organism, E value, and gene name
         const hitsData = row.hits;
         
         const BestOrgCell = document.createElement('td');
@@ -85,8 +85,10 @@ function generateTable(pageData) {
         const BestOrg = hitsData["BestOrg"]?.[0];
         const BestHit = hitsData["BestHit"]?.[0];
         const rowNum = row.row?.[0]; // get the actual row number
+        // NOTE: these are the maize CAAS genomes that don't have browsers. Can remove for other species.
         const CAASOrgs = ["A632", "Huangzaosi", "Jing724","Jing92", "Dan340", "PH207", "S37", "Xu178", "Ye478", "Zheng58"]; // CAAS genomes handled separately because they don't have browsers
 
+        // NOTE: Here, update the links that you would like to use for each Best Hit organism. I used MaizeGDB links where available and, if not, I used UniProt links.
         let BestHitLink;
         if (CAASOrgs.includes(BestOrg)) { // CAAS genomes don't have browsers
             BestHitLink = `https://www.maizegdb.org/genome/assembly/Zm-${BestOrg}-REFERENCE-CAAS_FIL-1.0`;
@@ -142,7 +144,7 @@ function generateTable(pageData) {
         BestHitCell.appendChild(bestHitLinkElement );
         rowElement.appendChild(BestHitCell);
 
-        // Example hit cells (sub-columns): example organism, E score, gene name, GO terms, and subcellular location
+        // Example hit cells (sub-columns): example organism, E value, gene name, GO terms, and subcellular location
         const ExOrgCell = document.createElement('td');
         ExOrgCell.textContent = hitsData["ExOrg"];
         ExOrgCell.classList.add('divider-left'); // make divider
@@ -156,6 +158,7 @@ function generateTable(pageData) {
         const ExOrg = hitsData["ExOrg"]?.[0];
         const ExHit = hitsData["ExHit"]?.[0];
 
+        // NOTE: Here, update the links that you would like to use for each example organism. I used MaizeGDB links where available and, if not, I used UniProt links.
         let ExHitLink;
         if (ExOrg === "B73") {
         	ExHitLink = `https://jbrowse.maizegdb.org/?data=B73&loc=${encodeURIComponent(ExHit)}&tracks=gene_models_official%2Cuniprot_Escherichia_coli_090%2Cuniprot_Caenorhabditis_elegans_090%2Cuniprot_Chlamydomonas_reinhardtii_090%2Cuniprot_Chara_braunii_090%2Cuniprot_Ceratopteris_richardii_090%2Cuniprot_Arabidopsis_thaliana_090%2Cuniprot_Musa_acuminata_090%2Cuniprot_Ananas_comosus_090%2Cuniprot_Oryza_sativa_090%2Cuniprot_Panicum_virgatum_090%2Cuniprot_Sorghum_bicolor_090`;
