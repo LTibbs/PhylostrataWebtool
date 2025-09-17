@@ -1,3 +1,5 @@
 taxonomy.info.csv
 proteome_quality.csv
 proteome_quality_taxonomy.info.csv
+webtool/node_modules/
+webtool/output_images/
