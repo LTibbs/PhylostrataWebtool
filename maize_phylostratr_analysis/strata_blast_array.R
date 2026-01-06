@@ -14,6 +14,8 @@ print(arg.2)
 setwd(paste0("phylostratr_main/phylostratr_",arg.2,"/"))
 
 # set current proteome
+# for test run of only the 7 B73 example genes, use test_proteome.csv instead:
+# maize.proteomes.dt <- fread(paste0("test_proteome.csv"))
 maize.proteomes.dt <- fread(paste0("master_proteomes.csv")) 
 
 current.proteome=maize.proteomes.dt$strata.name[arg.1]
@@ -29,11 +31,11 @@ strata.cellular.organisms@focal_species=current.proteome
 
 # run phylostratr and save results at each step
 results <- strata_blast(strata.cellular.organisms, blast_args = list(nthreads = 8)) 
-save(results, file = paste0("results.",current.proteome, ".1.Rdata"))
+# save(results, file = paste0("results.",current.proteome, ".1.Rdata"))
 
 results <- results%>%
   strata_besthits() 
-save(results, file = paste0("results.",current.proteome, ".2.Rdata"))
+# save(results, file = paste0("results.",current.proteome, ".2.Rdata"))
 
 results <- results%>%  
   merge_besthits()
