@@ -1,0 +1,46 @@
+<!-- html to make blast results page, reachable from "Detected in" column of gene page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLAST Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h2 { text-align: center; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border: 1px solid #ddd; }
+        th { background-color: #f2f2f2; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+        td.divider-left, th.divider-left { border-left: 3px solid #000; }
+        #loadingOverlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(255,255,255,0.8); z-index: 1000;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            font-size: 1.2rem; font-weight: bold; color: #333;
+        }
+        .spinner {
+            border: 6px solid #f3f3f3; border-top: 6px solid #3498db;
+            border-radius: 50%; width: 40px; height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        #back-link { display: block; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+<a id="back-link" href="#" style="display:none;">← Back to Details page</a>
+<!--  don't need link back to details page anymore because opening BLAST in new tab  -->
+<h2 id="page-title">BLAST Results</h2>
+<div id="tables-container"></div>
+
+<div id="loadingOverlay" style="display:none;">
+    <div class="spinner"></div>
+    <div style="margin-top:1rem;">Loading... Please wait.</div>
+</div>
+
+<script src="blast_results.js" defer></script>
+</body>
+</html>

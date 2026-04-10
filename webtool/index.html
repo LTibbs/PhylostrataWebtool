@@ -37,7 +37,7 @@
       <div class="tool-description">
           <!-- NOTE: change tool description here as desired -->
   <p>
-    Welcome to the MaizeGDB phylostrata tool! 
+    Welcome to the MaizeGDB Phylostrata Tool! 
    </p>
    <p> 
     Phylostratigraphy determines the level of evolutionary conservation of a given protein, shown here on a scale from 1 (cellular organisms, most conserved) to 14 (<i>Zea mays mays</i>, least conserved). For more information, check out the <a href="#about">About page</a>.
@@ -113,7 +113,7 @@
   </figure>
 
     <p>
-    Here, 14 phylostrata were considered, ranging from the most conserved (Phylostratum 1: Cellular Organisms) to the least conserved (Phylostratum 14: <i>Zea mays mays</i>) (see Fig. 1). Example species were chosen for each phylostratum based on quality of UniProt assemblies, status as model organism, etc.
+    Here, 14 phylostrata were considered, ranging from the most conserved (Phylostratum 1: Cellular Organisms, representing bacteria and archaea) to the least conserved (Phylostratum 14: maize-specific, representing <i>Zea mays mays</i>) (see Fig. 1). The tree used for this analysis included 48 proteomes from maize and other members of Andropogoneae obtained from MaizeGDB, as well as proteomes of 57 other eukaryotes and 116 prokaryotes (10 archaea and 106 bactiera) obtained from UniProt. Example species were chosen for each phylostratum based on quality of UniProt assemblies, status as model organism, etc.
     </p>
 
   <h3>Search Results</h3>
@@ -137,16 +137,16 @@
     </figcaption>
   </figure>
 
-  <h4>Detail pages</h4>
+  <h4>Details pages</h4>
   <p>
-    Clicking on a result image will bring you to the gene detail page. Detail pages can also be downloaded from the search results as html or txt files.
+    Clicking on a result image will bring you to the gene details page. Details pages can also be downloaded from the search results as html or txt files.
   </p>
 
   <p>
-    The detail page contains 14 rows, one for each phylostratum. There are 11 columns:
+    The Details page contains 14 rows, one for each phylostratum. There are 11 columns:
     <ul>
       <li><strong>Strata</strong>: Number and name of phylostratum.</li>
-      <li><strong>Detected in</strong>: In how many of the species in this phylostratum was this gene found? For example, homologs of Zm00001eb031900 were identified in 72 out of 116 of the members of the Cellular Organisms phylostratum (see Fig. 4).</li>
+      <li><strong>Detected in</strong>: In how many of the species in this phylostratum was this gene found? For example, homologs of Zm00001eb031900 were identified in 72 out of 116 of the members of the Cellular Organisms phylostratum (see Fig. 4). Clicking on this column will bring you to the BLAST results pages.</li>
       <li><strong>Best Hit in Stratum</strong>: These three columns show details for the best hit; that is, the highest-scoring homolog of the gene found in <strong>any species</strong> within the current phylostratum.</li>
       <ul>
         <li><strong>Organism</strong>: Organism in which the best hit was found.</li>
@@ -159,8 +159,8 @@
         <li><strong>E value</strong>: E value of the best hit in the example organism.</li>
         <li><strong>Gene</strong>: Gene ID in the example organism. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.
         <li><strong>Name</strong>: Gene/protein name in the example organism. For most organisms, these are protein names from UniProt. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are gene descriptions from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>.</li>
-        <li><strong>GO terms</strong>: Gene Ontology terms. For most organisms, these are from UniProt. For members of the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are from MaizeGDB EnTAP results (e.g., <a href="https://download.maizegdb.org/Zd-Gigi-REFERENCE-PanAnd-1.0/">Zd-Gigi-REFERENCE-PanAnd-1.0_Zd00001ab.1_entap_results.tsv.gz</a>). For B73, these are from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>.</li>
-        <li><strong>Subcellular Loc</strong>: Subcellular location. For most organisms, these are from UniProt. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these were identified with DeepLoc2.1.</li>
+        <li><strong>GO terms</strong>: Gene Ontology terms. For members of the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these are from MaizeGDB EnTAP results (e.g., <a href="https://download.maizegdb.org/Zd-Gigi-REFERENCE-PanAnd-1.0/">Zd-Gigi-REFERENCE-PanAnd-1.0_Zd00001ab.1_entap_results.tsv.gz</a>). For B73, these are from <a href="https://maizemine.rnet.missouri.edu/maizemine/">MaizeMine</a>. For all other organisms, GO terms are obtained directly from UniProt. </li> 
+        <li><strong>Subcellular Loc</strong>: Subcellular location. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project"> PanAnd project</a>, these were identified with DeepLoc2.1. For all other organisms, subcellular localization and any associated evidence codes are obtained directly from UniProt. </li>
       </ul>
     </ul>
     <ul>
@@ -172,9 +172,14 @@
     <figure>
     <img src="other_images/details_example.jpg" alt="Details_example" style="max-width: 1200px; width: 100%; margin-top: 1em;" />
     <figcaption>
-      Fig. 4: Top of Zm00001eb031900 detail page.
+      Fig. 4: Top of Zm00001eb031900 details page.
     </figcaption>
   </figure>
+
+  <h4>BLAST result pages</h4>
+  <p>
+    Clicking on an entry in the "Detected in" column of a Details page will bring you to the BLAST results pages, which show the best BLAST hit for the query protein in each target organism in a given phylostratum. These results are obtained from the `merge_besthits()` function in the `phylostratr` package.
+  </p>
 
   <h2>Further reading</h2>
     <ul>

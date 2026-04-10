@@ -34,6 +34,11 @@ stopifnot(sum(is.na(results$new.ps))==0)
 # otherwise, if you want to keep the default strata, use:
 # results <- results %>% mutate(new.ps=ps)
 
+# keep these results for BLAST tables
+blast.res <- results %>%
+  select(-ps) %>%
+  filter(staxid != "3702") # need to add in arabidopsis separately because of the TAIR to UniProt ID conversion (see below)
+
 # get the new.ps for each phylostrata result
 new.phylostrata <- left_join(phylostrata, 
                              results %>% 
@@ -422,3 +427,64 @@ write(toJSON(json.long.cleaned, pretty=T),
 # {"pages": [ { "id": 
 # by adding the {"pages": part at the beginning and } at the end of the file
 # see uniprot_table_loc_mini.json in folder for example
+
+# format the BLAST results for the webtool BLAST tables:
+# adding the Arabidopsis results back in:
+blast.res <- rbind(
+  blast.res, 
+  arab.results %>% 
+    select(-sseqid) %>%
+    rename(sseqid=uniprot.gene.id) %>% 
+    mutate(organism="3702") %>%
+    select(colnames(blast.res))
+)
+# get binomial names from taxa ids
+tax.key <- rbindlist(list(fread("eukaryote_20240228_UPIDs.csv"),
+                          fread("prokaryote_20240228_UPIDs.csv")))
+                          blast.res <- blast.res %>%
+  mutate(num.staxid=as.numeric(staxid)) 
+blast.res <- left_join(blast.res, tax.key, by = c("num.staxid"="taxonomy"))
+
+# need to get sseqids formatted, plus get correct species binomial
+blast.res <- blast.res %>%
+  mutate(best.hit=ifelse(staxid %in% c("3311", "3702"), sseqid, # for ginkgo and Arabidopsis just keep ids as is
+                         ifelse(grepl("^[0-9]", staxid), #Uniprot has numeric taxids
+                                str_split_i(sseqid,"\\|",2), # for UniProt 
+                                str_split_i(sseqid,"_", 1)))) %>% # for MaizeGDB
+  mutate(organism=ifelse(staxid=="3311", "Ginkgo_biloba",
+                  ifelse(!(is.na(species_binomial)), species_binomial,
+                           staxid)))
+sort(unique(blast.res$organism))
+
+blast.res <- blast.res %>%
+  select(qseqid, organism, phylostratum=new.ps, evalue, score, -sseqid, best.hit, qstart,qend, sstart,send) %>%
+  distinct
+blast.res$id <- str_split_i(string = blast.res$qseqid, 
+                                    pattern = "_",i=1)
+
+# take out underscores:
+blast.res$organism <- gsub("_"," ", blast.res$organism)
+
+# format and save results as csv.gz
+blast.res <- blast.res %>%
+  select(-qseqid) %>%
+  rename(sseqid=best.hit) %>%
+  select(id, phylostratum,organism, evalue,sseqid,everything()) %>%
+  arrange(id, phylostratum, evalue)
+fwrite(file="Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_blast_results.csv.gz", blast.res, sep=",")
+
+# format and save as gene-specific json files for the webtool BLAST results pages:
+library(jsonlite)
+# Make output directory
+dir.create("blast_results_by_gene", showWarnings = FALSE)
+
+# Split and write one JSON per gene
+by_gene <- split(blast.res, blast.res$id)  
+
+for (gene_id in names(by_gene)) {
+  hits <- by_gene[[gene_id]]
+  out <- list(blast_results = hits)
+  write_json(out, 
+             path = file.path("blast_results_by_gene", paste0(gene_id, "_blast_results.json")),
+             pretty = FALSE)
+}

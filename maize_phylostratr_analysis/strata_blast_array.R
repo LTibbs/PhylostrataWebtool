@@ -40,6 +40,7 @@ results <- results%>%
 results <- results%>%  
   merge_besthits()
 save(results, file = paste0("results.",current.proteome, ".3.Rdata"))
+# NOTE: the results at this stage are the basis of the BLAST results tables
 
 phylostrata <- stratify(results)
 save(phylostrata, file =paste0("phylostrata.",current.proteome, ".Rdata"))

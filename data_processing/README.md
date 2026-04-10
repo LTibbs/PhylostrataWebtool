@@ -1,9 +1,10 @@
 # Data Processing
 
-The goal of the code in this subfolder is to process the `Rdata` outupt from Phylostratr and combine it with UniProt data (subcellular localization and GO terms) to create the `json` files used for the webtool visualization. The goal is to end with two json files:
+The goal of the code in this subfolder is to process the `Rdata` outupt from Phylostratr and combine it with UniProt data (subcellular localization and GO terms) to create the `json` files used for the webtool visualization. The goal is to end with three types of json files:
 
 1. The `cleaned_uniprot_table_loc.json` file is used to build the details page for each protein. It has the best hit for each protein within each stratum, as well as other details including subcellular localization and GO terms in the chosen example species for each stratum. For an example of this file format, see [uniprot_table_loc_mini.json](https://github.com/LTibbs/PhylostrataWebtool/blob/main/data_processing/uniprot_table_loc_mini.json). To use in the webtool, place this file in the `webtool/gene_pages` directory.
 2. The `gene_fill.json` file is used to build the visual search result image showing the stratum level of each protein. It has the stratum of each protein as well as the fill percentage for this protein, which is calculated based on the stratum number. For an example of this file format, see [gene_fill_mini.json](https://github.com/LTibbs/PhylostrataWebtool/blob/main/data_processing/gene_fill_mini.json). To use in the webtool, place this file in the `webtool/image_code` directory.
+3. The `${geneID}_blast_results.json` files are used to build the BLAST search results pages, linked from the "Detected in" column of the Details pages. They contain the top BLAST hit for the query protein within each target organism. For an example of this file format, see [Zm00001eb000010_blast_results.json](https://github.com/LTibbs/PhylostrataWebtool/blob/main/webtool/gene_pages/Zm00001eb000010_blast_results.json). To use in the webtool, place these files in the `webtool/gene_pages/blast_results_by_gene` directory.
 
 In this code, I have used `NOTE` in comments to denote places where the user may want or need to make changes to customize the results. For example, the user can specify the example species for each phylostratum or choose to combine multiple strata into one. 
 

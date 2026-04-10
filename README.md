@@ -5,7 +5,7 @@ This repository contains the code for the MaizeGDB Phylostrata Tool at [https://
 Read the pre-print at https://doi.org/10.64898/2025.12.19.695500.
 
 ## maize_phylostratr_analysis
-Contains the code used for phylostratr analysis of maize, as well as description of input and output files for an example run with test data. Analysis based on an updated version of the phylostratr package, see [https://github.com/LTibbs/phylostratr](https://github.com/LTibbs/phylostratr) and [https://doi.org/10.1093/bioinformatics/btz171](https://doi.org/10.1093/bioinformatics/btz171) for more information about this package.  
+Contains the code used for phylostratr analysis of maize, as well as description of input and output files for an example run with test data. Analysis based on an updated version of the phylostratr package, see [https://github.com/arendsee/phylostratr](https://github.com/arendsee/phylostratr) or [https://github.com/LTibbs/phylostratr](https://github.com/LTibbs/phylostratr) and [https://doi.org/10.1093/bioinformatics/btz171](https://doi.org/10.1093/bioinformatics/btz171) for more information about this package.  
 
 ## data_processing
 Contains the code used to process phylostratr output to format it for display in the web tool. For users who would like to implement this tool for their own species or use case, sections to customize are annotated with "NOTE" in the comments.
