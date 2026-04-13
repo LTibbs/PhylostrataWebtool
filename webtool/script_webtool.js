@@ -985,5 +985,11 @@ document.getElementById('download-results-link').addEventListener('click', (e) =
   downloadZipByPattern('phylostrata_results', 'NAM_phylostrata_results.zip');
 });
 
+// NOTE: update patterns and zip names here as needed
+document.getElementById('download-blast-link').addEventListener('click', (e) => {
+  e.preventDefault();
+  downloadZipByPattern('blast_results', 'NAM_phylostrata_blast_results.zip');
+});
+
 
 

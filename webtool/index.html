@@ -139,14 +139,14 @@
 
   <h4>Details pages</h4>
   <p>
-    Clicking on a result image will bring you to the gene details page. Details pages can also be downloaded from the search results as html or txt files.
+    Clicking on a result image will bring you to the gene details page. Details pages for B73 proteins can also be downloaded from the search results as html or txt files. Full-proteome results for the NAM founders can be downloaded from the <a href="#downloads">Downloads</a> page.
   </p>
 
   <p>
     The Details page contains 14 rows, one for each phylostratum. There are 11 columns:
     <ul>
       <li><strong>Strata</strong>: Number and name of phylostratum.</li>
-      <li><strong>Detected in</strong>: In how many of the species in this phylostratum was this gene found? For example, homologs of Zm00001eb031900 were identified in 72 out of 116 of the members of the Cellular Organisms phylostratum (see Fig. 4). Clicking on this column will bring you to the BLAST results pages.</li>
+      <li><strong>Detected in</strong>: In how many of the species in this phylostratum was this gene found? For example, homologs of Zm00001eb031900 were identified in 72 out of 116 of the members of the Cellular Organisms phylostratum (see Fig. 4). Clicking on this column will bring you to the BLAST results pages (see below).</li>
       <li><strong>Best Hit in Stratum</strong>: These three columns show details for the best hit; that is, the highest-scoring homolog of the gene found in <strong>any species</strong> within the current phylostratum.</li>
       <ul>
         <li><strong>Organism</strong>: Organism in which the best hit was found.</li>
@@ -178,8 +178,28 @@
 
   <h4>BLAST result pages</h4>
   <p>
-    Clicking on an entry in the "Detected in" column of a Details page will bring you to the BLAST results pages, which show the best BLAST hit for the query protein in each target organism in a given phylostratum. These results are obtained from the `merge_besthits()` function in the `phylostratr` package.
+    Clicking on an entry in the "Detected in" column of a Details page will bring you to the BLAST results page for that phylostratum. This page shows the best BLAST hit for the query protein in each target organism in the search space for that phylostratum. If no hit was found in a given organism for the query protein, that target organism will not be shown in the table. These results are obtained from the `merge_besthits()` function in the `phylostratr` package.
+    Full-proteome BLAST results can be downloaded for each of the NAM founders from the <a href="#downloads">Downloads</a> page.
   </p>
+    The BLAST results pages show the protein BLAST results for a single query protein in all of the target (subject) organisms for a given phylostratum search space. The query protein and the current phylostratum are named at the top of the page (Fig. 5). Each row contains the top BLAST hit for the query maize protein in a subject organism. There are 8 columns:
+    <ul>
+      <li><strong>Organism</strong>: Name of the current subject organism</li>
+        <li><strong>E value</strong>: BLAST E value</li>
+        <li><strong>Gene</strong>: Gene ID of best hit. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project">PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.</li>
+        <li><strong>Score</strong>: BLAST score</li>
+        <li><strong>Query Start</strong>: Query start position</li>
+        <li><strong>Query End</strong>: Query end position</li>
+        <li><strong>Subject Start</strong>: Subject start position</li>
+        <li><strong>Subject End</strong>: Subject end position</li>
+      </ul>
+    </ul>
+  </figure>
+    <figure>
+    <img src="other_images/BLAST_Zm00001eb031900_PS2.png" alt="BLAST_example" style="max-width: 1200px; width: 100%; margin-top: 1em;" />
+    <figcaption>
+      Fig. 5: BLAST results page for Zm00001eb031900, Phylostratum 2 (Eukaryotes).
+    </figcaption>
+  </figure>
 
   <h2>Further reading</h2>
     <ul>
@@ -288,9 +308,57 @@
       </ul>
     </ul>
     <ul>
-
     </ul> 
   </p>
+  <h3>BLAST results files: </h3>
+  <p>Download proteome-wide BLAST results for each of the NAM founders. These results are obtained from the `merge_besthits()` function in the `phylostratr` package, and they include the best BLAST hit for each query protein in each target organism. </p>
+<p>
+    <a href="other_images/Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_blast_results.csv.gz" download>Zm-B73-REFERENCE-NAM-5.0_Zm00001eb.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-B97-REFERENCE-NAM-1.0_Zm00018ab.1_blast_results.csv.gz" download>Zm-B97-REFERENCE-NAM-1.0_Zm00018ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML103-REFERENCE-NAM-1.0_Zm00021ab.1_blast_results.csv.gz" download>Zm-CML103-REFERENCE-NAM-1.0_Zm00021ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML228-REFERENCE-NAM-1.0_Zm00022ab.1_blast_results.csv.gz" download>Zm-CML228-REFERENCE-NAM-1.0_Zm00022ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML247-REFERENCE-NAM-1.0_Zm00023ab.1_blast_results.csv.gz" download>Zm-CML247-REFERENCE-NAM-1.0_Zm00023ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML277-REFERENCE-NAM-1.0_Zm00024ab.1_blast_results.csv.gz" download>Zm-CML277-REFERENCE-NAM-1.0_Zm00024ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML322-REFERENCE-NAM-1.0_Zm00025ab.1_blast_results.csv.gz" download>Zm-CML322-REFERENCE-NAM-1.0_Zm00025ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML333-REFERENCE-NAM-1.0_Zm00026ab.1_blast_results.csv.gz" download>Zm-CML333-REFERENCE-NAM-1.0_Zm00026ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML52-REFERENCE-NAM-1.0_Zm00019ab.1_blast_results.csv.gz" download>Zm-CML52-REFERENCE-NAM-1.0_Zm00019ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-CML69-REFERENCE-NAM-1.0_Zm00020ab.1_blast_results.csv.gz" download>Zm-CML69-REFERENCE-NAM-1.0_Zm00020ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-HP301-REFERENCE-NAM-1.0_Zm00027ab.1_blast_results.csv.gz" download>Zm-HP301-REFERENCE-NAM-1.0_Zm00027ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Il14H-REFERENCE-NAM-1.0_Zm00028ab.1_blast_results.csv.gz" download>Zm-Il14H-REFERENCE-NAM-1.0_Zm00028ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Ki11-REFERENCE-NAM-1.0_Zm00030ab.1_blast_results.csv.gz" download>Zm-Ki11-REFERENCE-NAM-1.0_Zm00030ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Ki3-REFERENCE-NAM-1.0_Zm00029ab.1_blast_results.csv.gz" download>Zm-Ki3-REFERENCE-NAM-1.0_Zm00029ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Ky21-REFERENCE-NAM-1.0_Zm00031ab.1_blast_results.csv.gz" download>Zm-Ky21-REFERENCE-NAM-1.0_Zm00031ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-M162W-REFERENCE-NAM-1.0_Zm00033ab.1_blast_results.csv.gz" download>Zm-M162W-REFERENCE-NAM-1.0_Zm00033ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-M37W-REFERENCE-NAM-1.0_Zm00032ab.1_blast_results.csv.gz" download>Zm-M37W-REFERENCE-NAM-1.0_Zm00032ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Mo18W-REFERENCE-NAM-1.0_Zm00034ab.1_blast_results.csv.gz" download>Zm-Mo18W-REFERENCE-NAM-1.0_Zm00034ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Ms71-REFERENCE-NAM-1.0_Zm00035ab.1_blast_results.csv.gz" download>Zm-Ms71-REFERENCE-NAM-1.0_Zm00035ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-NC350-REFERENCE-NAM-1.0_Zm00036ab.1_blast_results.csv.gz" download>Zm-NC350-REFERENCE-NAM-1.0_Zm00036ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-NC358-REFERENCE-NAM-1.0_Zm00037ab.1_blast_results.csv.gz" download>Zm-NC358-REFERENCE-NAM-1.0_Zm00037ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Oh43-REFERENCE-NAM-1.0_Zm00039ab.1_blast_results.csv.gz" download>Zm-Oh43-REFERENCE-NAM-1.0_Zm00039ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Oh7B-REFERENCE-NAM-1.0_Zm00038ab.1_blast_results.csv.gz" download>Zm-Oh7B-REFERENCE-NAM-1.0_Zm00038ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-P39-REFERENCE-NAM-1.0_Zm00040ab.1_blast_results.csv.gz" download>Zm-P39-REFERENCE-NAM-1.0_Zm00040ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Tx303-REFERENCE-NAM-1.0_Zm00041ab.1_blast_results.csv.gz" download>Zm-Tx303-REFERENCE-NAM-1.0_Zm00041ab.1_blast_results.csv.gz</a><br>
+<a href="other_images/Zm-Tzi8-REFERENCE-NAM-1.0_Zm00042ab.1_blast_results.csv.gz" download>Zm-Tzi8-REFERENCE-NAM-1.0_Zm00042ab.1_blast_results.csv.gz</a><br>
+  </p>
+  <p>or <a href="#" id="download-blast-link">Download all BLAST results files</a></p>
+  <h4>BLAST results file description: </h4>
+    Each row contains the top BLAST hit for a given query maize protein in a given target (subject) organism. The longest isoform of each protein is used. There are 10 columns:
+    <ul>
+      <li><strong>id</strong>: Gene ID of maize query gene</li>
+      <li><strong>phylostratum</strong>: Phylostratum number of the current subject organism</li>
+      <li><strong>organism</strong>: Name of the current subject organism</li>
+      <li>The next seven columns show details for the best BLAST hit for this query gene in this subject organism:</li>
+      <ul>
+        <li><strong>evalue</strong>: BLAST E value</li>
+        <li><strong>sseqid</strong>: Gene ID of best hit. For most organisms, these are UniProt IDs. For members of <i>Zea</i> and the <a href="https://maizegdb.org/PanAnd_project">PanAnd project</a>, these are MaizeGDB IDs. For <i>Ginkgo biloba</i>, these are IDs from the <a href="https://datacommons.cyverse.org/browse/iplant/home/shared/commons_repo/curated/oneKP_capstone_2019/transcript_assemblies/SGTW-Ginkgo_biloba">OneKP project</a>.</li>
+        <li><strong>score</strong>: BLAST score</li>
+        <li><strong>qstart</strong>: Query start position</li>
+        <li><strong>qend</strong>: Query end position</li>
+        <li><strong>sstart</strong>: Subject start position</li>
+        <li><strong>send</strong>: Subject end position</li>
+      </ul>
+      </ul>
+    </ul>
   <div id="loadingOverlayDownloads" aria-live="polite" style="display: none;">
   <div class="spinner"></div>
   <div style="margin-top: 1rem;">Downloading... Please wait.</div>
