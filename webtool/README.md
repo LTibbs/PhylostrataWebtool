@@ -11,7 +11,7 @@ There are also three subfolders:
 3. [other_images](https://github.com/LTibbs/PhylostrataWebtool/tree/main/webtool/other_images) contains all of the other files referenced in the code, for example images of the strata example species, results files for the Downloads page, etc. 
 
 ## Deployment
-The Phylostrata tool has been containerized into a docker image and is available at <a href="https://www.docker.io/maizegdb/phylostrata">docker.io/maizegdb/phylostrata</a>. MaizeGDB is running the tool as a container on our Podman server, but it can also be deployed locally. If you have docker installed on your device, you can download and run the tool with this command in the terminal:
+The Phylostrata tool has been containerized into a docker image and is available at <a href="https://hub.docker.com/r/maizegdb/phylostrata">docker.io/maizegdb/phylostrata</a>. MaizeGDB is running the tool as a container on our Podman server, but it can also be deployed locally. If you have docker installed on your device, you can download and run the tool with this command in the terminal:
 
 `$ docker run -it -d -p 8080:80 --name phylostrata maizegdb/phylostrata`
 
