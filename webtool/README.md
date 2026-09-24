@@ -1,5 +1,5 @@
 # MaizeGDB Phylostrata Webtool
-This subfolder contains the scripts used for the webtool to visualize phylostrata data at MaizeGDB. Use the two json files from the [data_processing](https://github.com/LTibbs/PhylostrataWebtool/tree/main/data_processing) subfolder as input. 
+This subfolder contains the scripts used for the webtool to visualize phylostrata data at MaizeGDB (see paper at [https://doi.org/10.1093/bioadv/vbag216](https://doi.org/10.1093/bioadv/vbag216) for more information). Use the two json files from the [data_processing](https://github.com/LTibbs/PhylostrataWebtool/tree/main/data_processing) subfolder as input. 
 
 In this code, I have used `NOTE` in comments to denote places where the user may want or need to make changes to customize the results. For example, the user can specify the example species for each phylostratum and provide example images.
 
